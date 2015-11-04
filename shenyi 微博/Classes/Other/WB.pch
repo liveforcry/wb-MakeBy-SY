@@ -1,0 +1,25 @@
+//
+//  WB.pch
+//  shenyi weibo
+//
+//  Created by apple-jd30 on 15/11/4.
+//  Copyright © 2015年 apple-jd30. All rights reserved.
+//
+
+#ifndef WB_pch
+#define WB_pch
+
+#import "UIImage+WBimage.h"
+#import "UIView+frame.h"
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+#define WBKeyWindow [UIApplication sharedApplication].keyWindow
+
+#ifdef DEBUG //调式
+//__VA_ARGS__: 表示函数里面的可变参数
+#define WBLog(...) NSLog(__VA_ARGS__)//3个点表示宏定义了可变参数
+#else //发布
+#define WBLog(...)
+#endif
+
+#endif /* WB_pch */

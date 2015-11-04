@@ -10,6 +10,14 @@
 #import "UIImage+WBimage.h"
 #import "WBTabBar.h"
 #import "WBTabBar.h"
+#import "WBNavigationController.h"
+
+
+#import "WBProfileViewController.h"
+#import "WBMessageViewController.h"
+#import "WBHomeViewController.h"
+#import "WBDiscoverViewController.h"
+
 @interface WBTabBarController ()<WBTabBarDelegate>
 @property(nonatomic,strong)NSMutableArray *buttons;
 @end
@@ -56,36 +64,38 @@
 #pragma mark 添加所有子控制器
 
 -(void)setUpAllChildViewController{
-    UIViewController *home = [UIViewController new];
+    WBHomeViewController *home = [WBHomeViewController new];
     [self addOneChildViewController:home Image:[UIImage imageNamed:@"tabbar_home"] SelecteImage:[UIImage imageWithOriginalName:@"tabbar_home_selected"] Title:@"首页"];
-    home.view.backgroundColor = [UIColor redColor];
+    
     
         //消息
-    UIViewController *message = [UIViewController new];
+    WBMessageViewController *message = [WBMessageViewController new];
    
     [self addOneChildViewController:message Image:[UIImage imageNamed:@"tabbar_message_center"] SelecteImage:[UIImage imageWithOriginalName:@"tabbar_message_center_selected"] Title:@"消息"];
-    message.view.backgroundColor = [UIColor yellowColor];
+
     
     //发现
-    UIViewController *discover = [UIViewController new];
+    WBDiscoverViewController *discover = [WBDiscoverViewController new];
     [self addOneChildViewController:discover Image:[UIImage imageNamed:@"tabbar_discover"] SelecteImage:[UIImage imageWithOriginalName:@"tabbar_discover_selected"] Title:@"发现"];
-    discover.view.backgroundColor = [UIColor purpleColor];
+  
 
     //我
-    UIViewController *profile = [UIViewController new];
+    WBProfileViewController *profile = [WBProfileViewController new];
     [self addOneChildViewController:profile Image:[UIImage imageNamed:@"tabbar_profile"] SelecteImage:[UIImage imageWithOriginalName:@"tabbar_profile_selected"] Title:@"我"];
-    profile.view.backgroundColor = [UIColor grayColor];
+   
 ;
 
 }
 #pragma  mark 添加一个子控制器
 //带有中文的参数一般放在最后面 这样前面的可以提示代码
 -(void)addOneChildViewController : (UIViewController *)vc Image:(UIImage *)image SelecteImage:(UIImage *)selectImage Title: (NSString *)title{
-    vc.tabBarItem.title = title;
+    vc.title = title;
     vc.tabBarItem.image = image;
     vc.tabBarItem.selectedImage = selectImage;
     [self.buttons addObject:vc.tabBarItem];
-    [self addChildViewController:vc];
+    WBNavigationController *controller = [[WBNavigationController alloc]initWithRootViewController:vc];
+  
+    [self addChildViewController:controller];
 
 }
 

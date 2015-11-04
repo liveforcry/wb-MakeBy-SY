@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2204F16D1BE9B1B7004D93FE /* WBNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2204F16C1BE9B1B7004D93FE /* WBNavigationController.m */; };
+		2204F1731BE9B441004D93FE /* WBProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2204F1721BE9B441004D93FE /* WBProfileViewController.m */; };
+		2204F1761BE9B458004D93FE /* WBMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2204F1751BE9B458004D93FE /* WBMessageViewController.m */; };
+		2204F1791BE9B46C004D93FE /* WBDiscoverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2204F1781BE9B46C004D93FE /* WBDiscoverViewController.m */; };
+		2204F17C1BE9B481004D93FE /* WBHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2204F17B1BE9B481004D93FE /* WBHomeViewController.m */; };
 		221441B61BE864D300DC2789 /* UIView+frame.m in Sources */ = {isa = PBXBuildFile; fileRef = 221441B51BE864D300DC2789 /* UIView+frame.m */; };
 		2289D5C71BE7849900D03EED /* WBTabBarButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 2289D5C61BE7849900D03EED /* WBTabBarButton.m */; };
 		2289D5CA1BE784CA00D03EED /* WBbadgeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2289D5C91BE784CA00D03EED /* WBbadgeView.m */; };
@@ -40,8 +45,19 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2204F16B1BE9B1B7004D93FE /* WBNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBNavigationController.h; sourceTree = "<group>"; };
+		2204F16C1BE9B1B7004D93FE /* WBNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBNavigationController.m; sourceTree = "<group>"; };
+		2204F1711BE9B441004D93FE /* WBProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBProfileViewController.h; sourceTree = "<group>"; };
+		2204F1721BE9B441004D93FE /* WBProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBProfileViewController.m; sourceTree = "<group>"; };
+		2204F1741BE9B458004D93FE /* WBMessageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBMessageViewController.h; sourceTree = "<group>"; };
+		2204F1751BE9B458004D93FE /* WBMessageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBMessageViewController.m; sourceTree = "<group>"; };
+		2204F1771BE9B46C004D93FE /* WBDiscoverViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBDiscoverViewController.h; sourceTree = "<group>"; };
+		2204F1781BE9B46C004D93FE /* WBDiscoverViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBDiscoverViewController.m; sourceTree = "<group>"; };
+		2204F17A1BE9B481004D93FE /* WBHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBHomeViewController.h; sourceTree = "<group>"; };
+		2204F17B1BE9B481004D93FE /* WBHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBHomeViewController.m; sourceTree = "<group>"; };
 		221441B41BE864D300DC2789 /* UIView+frame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIView+frame.h"; path = "../../../../UIView+frame.h"; sourceTree = "<group>"; };
 		221441B51BE864D300DC2789 /* UIView+frame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIView+frame.m"; path = "../../../../UIView+frame.m"; sourceTree = "<group>"; };
+		226D652B1BEA2E1A0046B104 /* WB.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WB.pch; sourceTree = "<group>"; };
 		2289D5C51BE7849900D03EED /* WBTabBarButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBTabBarButton.h; sourceTree = "<group>"; };
 		2289D5C61BE7849900D03EED /* WBTabBarButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBTabBarButton.m; sourceTree = "<group>"; };
 		2289D5C81BE784CA00D03EED /* WBbadgeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBbadgeView.h; sourceTree = "<group>"; };
@@ -56,14 +72,14 @@
 		22A872D61BE3A1C800FB540D /* UIImage+WBimage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+WBimage.m"; sourceTree = "<group>"; };
 		22A872D71BE3A1C800FB540D /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		22F1A22E1BE30B0F00093192 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		22FE7E2A1BE100DA002B30A1 /* shenyi weibo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "shenyi weibo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		22FE7E2A1BE100DA002B30A1 /* shenyi 微博.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "shenyi 微博.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		22FE7E391BE100DA002B30A1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		22FE7E3C1BE100DA002B30A1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		22FE7E3E1BE100DA002B30A1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		22FE7E431BE100DA002B30A1 /* shenyi weibo.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "shenyi weibo.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		22FE7E431BE100DA002B30A1 /* shenyi 微博.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "shenyi 微博.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		22FE7E471BE100DA002B30A1 /* shenyi___Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "shenyi___Tests.m"; sourceTree = "<group>"; };
 		22FE7E491BE100DA002B30A1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		22FE7E4E1BE100DA002B30A1 /* shenyi weibo.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "shenyi weibo.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		22FE7E4E1BE100DA002B30A1 /* shenyi 微博.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "shenyi 微博.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		22FE7E521BE100DA002B30A1 /* shenyi___UITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "shenyi___UITests.m"; sourceTree = "<group>"; };
 		22FE7E541BE100DA002B30A1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -120,6 +136,8 @@
 		22A872BE1BE3A1C800FB540D /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				2204F1771BE9B46C004D93FE /* WBDiscoverViewController.h */,
+				2204F1781BE9B46C004D93FE /* WBDiscoverViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -151,6 +169,8 @@
 		22A872C21BE3A1C800FB540D /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				2204F17A1BE9B481004D93FE /* WBHomeViewController.h */,
+				2204F17B1BE9B481004D93FE /* WBHomeViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -184,6 +204,8 @@
 			children = (
 				22A872C71BE3A1C800FB540D /* WBTabBarController.h */,
 				22A872C81BE3A1C800FB540D /* WBTabBarController.m */,
+				2204F16B1BE9B1B7004D93FE /* WBNavigationController.h */,
+				2204F16C1BE9B1B7004D93FE /* WBNavigationController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -221,6 +243,8 @@
 		22A872CE1BE3A1C800FB540D /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				2204F1741BE9B458004D93FE /* WBMessageViewController.h */,
+				2204F1751BE9B458004D93FE /* WBMessageViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -246,6 +270,7 @@
 				22A872D31BE3A1C800FB540D /* AppDelegate.m */,
 				22A872D41BE3A1C800FB540D /* Category */,
 				22A872D71BE3A1C800FB540D /* main.m */,
+				226D652B1BEA2E1A0046B104 /* WB.pch */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -274,6 +299,8 @@
 		22A872D91BE3A1C800FB540D /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				2204F1711BE9B441004D93FE /* WBProfileViewController.h */,
+				2204F1721BE9B441004D93FE /* WBProfileViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -306,9 +333,9 @@
 		22FE7E2B1BE100DA002B30A1 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				22FE7E2A1BE100DA002B30A1 /* shenyi weibo.app */,
-				22FE7E431BE100DA002B30A1 /* shenyi weibo.xctest */,
-				22FE7E4E1BE100DA002B30A1 /* shenyi weibo.xctest */,
+				22FE7E2A1BE100DA002B30A1 /* shenyi 微博.app */,
+				22FE7E431BE100DA002B30A1 /* shenyi 微博.xctest */,
+				22FE7E4E1BE100DA002B30A1 /* shenyi 微博.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -354,9 +381,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		22FE7E291BE100DA002B30A1 /* shenyi weibo */ = {
+		22FE7E291BE100DA002B30A1 /* shenyi 微博 */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 22FE7E571BE100DA002B30A1 /* Build configuration list for PBXNativeTarget "shenyi weibo" */;
+			buildConfigurationList = 22FE7E571BE100DA002B30A1 /* Build configuration list for PBXNativeTarget "shenyi 微博" */;
 			buildPhases = (
 				22FE7E261BE100DA002B30A1 /* Sources */,
 				22FE7E271BE100DA002B30A1 /* Frameworks */,
@@ -366,14 +393,14 @@
 			);
 			dependencies = (
 			);
-			name = "shenyi weibo";
+			name = "shenyi 微博";
 			productName = "shenyi 微博";
-			productReference = 22FE7E2A1BE100DA002B30A1 /* shenyi weibo.app */;
+			productReference = 22FE7E2A1BE100DA002B30A1 /* shenyi 微博.app */;
 			productType = "com.apple.product-type.application";
 		};
-		22FE7E421BE100DA002B30A1 /* shenyi weiboTests */ = {
+		22FE7E421BE100DA002B30A1 /* shenyi 微博Tests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 22FE7E5A1BE100DA002B30A1 /* Build configuration list for PBXNativeTarget "shenyi weiboTests" */;
+			buildConfigurationList = 22FE7E5A1BE100DA002B30A1 /* Build configuration list for PBXNativeTarget "shenyi 微博Tests" */;
 			buildPhases = (
 				22FE7E3F1BE100DA002B30A1 /* Sources */,
 				22FE7E401BE100DA002B30A1 /* Frameworks */,
@@ -384,14 +411,14 @@
 			dependencies = (
 				22FE7E451BE100DA002B30A1 /* PBXTargetDependency */,
 			);
-			name = "shenyi weiboTests";
+			name = "shenyi 微博Tests";
 			productName = "shenyi 微博Tests";
-			productReference = 22FE7E431BE100DA002B30A1 /* shenyi weibo.xctest */;
+			productReference = 22FE7E431BE100DA002B30A1 /* shenyi 微博.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		22FE7E4D1BE100DA002B30A1 /* shenyi weiboUITests */ = {
+		22FE7E4D1BE100DA002B30A1 /* shenyi 微博UITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 22FE7E5D1BE100DA002B30A1 /* Build configuration list for PBXNativeTarget "shenyi weiboUITests" */;
+			buildConfigurationList = 22FE7E5D1BE100DA002B30A1 /* Build configuration list for PBXNativeTarget "shenyi 微博UITests" */;
 			buildPhases = (
 				22FE7E4A1BE100DA002B30A1 /* Sources */,
 				22FE7E4B1BE100DA002B30A1 /* Frameworks */,
@@ -402,9 +429,9 @@
 			dependencies = (
 				22FE7E501BE100DA002B30A1 /* PBXTargetDependency */,
 			);
-			name = "shenyi weiboUITests";
+			name = "shenyi 微博UITests";
 			productName = "shenyi 微博UITests";
-			productReference = 22FE7E4E1BE100DA002B30A1 /* shenyi weibo.xctest */;
+			productReference = 22FE7E4E1BE100DA002B30A1 /* shenyi 微博.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -430,7 +457,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 22FE7E251BE100DA002B30A1 /* Build configuration list for PBXProject "shenyi weibo" */;
+			buildConfigurationList = 22FE7E251BE100DA002B30A1 /* Build configuration list for PBXProject "shenyi 微博" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -443,9 +470,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				22FE7E291BE100DA002B30A1 /* shenyi weibo */,
-				22FE7E421BE100DA002B30A1 /* shenyi weiboTests */,
-				22FE7E4D1BE100DA002B30A1 /* shenyi weiboUITests */,
+				22FE7E291BE100DA002B30A1 /* shenyi 微博 */,
+				22FE7E421BE100DA002B30A1 /* shenyi 微博Tests */,
+				22FE7E4D1BE100DA002B30A1 /* shenyi 微博UITests */,
 			);
 		};
 /* End PBXProject section */
@@ -481,10 +508,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2204F1791BE9B46C004D93FE /* WBDiscoverViewController.m in Sources */,
 				221441B61BE864D300DC2789 /* UIView+frame.m in Sources */,
 				2289D5CA1BE784CA00D03EED /* WBbadgeView.m in Sources */,
+				2204F1761BE9B458004D93FE /* WBMessageViewController.m in Sources */,
 				22A872DE1BE3A1C800FB540D /* AppDelegate.m in Sources */,
+				2204F1731BE9B441004D93FE /* WBProfileViewController.m in Sources */,
+				2204F16D1BE9B1B7004D93FE /* WBNavigationController.m in Sources */,
 				22A872DD1BE3A1C800FB540D /* WBTabBar.m in Sources */,
+				2204F17C1BE9B481004D93FE /* WBHomeViewController.m in Sources */,
 				2289D5C71BE7849900D03EED /* WBTabBarButton.m in Sources */,
 				22A872DC1BE3A1C800FB540D /* WBTabBarController.m in Sources */,
 				22A872E01BE3A1C800FB540D /* main.m in Sources */,
@@ -513,12 +545,12 @@
 /* Begin PBXTargetDependency section */
 		22FE7E451BE100DA002B30A1 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 22FE7E291BE100DA002B30A1 /* shenyi weibo */;
+			target = 22FE7E291BE100DA002B30A1 /* shenyi 微博 */;
 			targetProxy = 22FE7E441BE100DA002B30A1 /* PBXContainerItemProxy */;
 		};
 		22FE7E501BE100DA002B30A1 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 22FE7E291BE100DA002B30A1 /* shenyi weibo */;
+			target = 22FE7E291BE100DA002B30A1 /* shenyi 微博 */;
 			targetProxy = 22FE7E4F1BE100DA002B30A1 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -622,11 +654,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
+				GCC_PREFIX_HEADER = "shenyi 微博/Classes/Other/WB.pch";
 				INFOPLIST_FILE = "shenyi 微博/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "apple-jd30.shenyi---";
-				PRODUCT_NAME = "shenyi weibo";
+				PRODUCT_NAME = "shenyi 微博";
 			};
 			name = Debug;
 		};
@@ -635,11 +668,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
+				GCC_PREFIX_HEADER = "shenyi 微博/Classes/Other/WB.pch";
 				INFOPLIST_FILE = "shenyi 微博/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "apple-jd30.shenyi---";
-				PRODUCT_NAME = "shenyi weibo";
+				PRODUCT_NAME = "shenyi 微博";
 			};
 			name = Release;
 		};
@@ -650,8 +684,8 @@
 				INFOPLIST_FILE = "shenyi 微博Tests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "apple-jd30.shenyi---Tests";
-				PRODUCT_NAME = "shenyi weibo";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/shenyi weibo.app/shenyi weibo";
+				PRODUCT_NAME = "shenyi 微博";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/shenyi 微博.app/shenyi 微博";
 			};
 			name = Debug;
 		};
@@ -662,8 +696,8 @@
 				INFOPLIST_FILE = "shenyi 微博Tests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "apple-jd30.shenyi---Tests";
-				PRODUCT_NAME = "shenyi weibo";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/shenyi weibo.app/shenyi weibo";
+				PRODUCT_NAME = "shenyi 微博";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/shenyi 微博.app/shenyi 微博";
 			};
 			name = Release;
 		};
@@ -673,7 +707,7 @@
 				INFOPLIST_FILE = "shenyi 微博UITests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "apple-jd30.shenyi---UITests";
-				PRODUCT_NAME = "shenyi weibo";
+				PRODUCT_NAME = "shenyi 微博";
 				TEST_TARGET_NAME = "shenyi 微博";
 				USES_XCTRUNNER = YES;
 			};
@@ -685,7 +719,7 @@
 				INFOPLIST_FILE = "shenyi 微博UITests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "apple-jd30.shenyi---UITests";
-				PRODUCT_NAME = "shenyi weibo";
+				PRODUCT_NAME = "shenyi 微博";
 				TEST_TARGET_NAME = "shenyi 微博";
 				USES_XCTRUNNER = YES;
 			};
@@ -694,7 +728,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		22FE7E251BE100DA002B30A1 /* Build configuration list for PBXProject "shenyi weibo" */ = {
+		22FE7E251BE100DA002B30A1 /* Build configuration list for PBXProject "shenyi 微博" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				22FE7E551BE100DA002B30A1 /* Debug */,
@@ -703,7 +737,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		22FE7E571BE100DA002B30A1 /* Build configuration list for PBXNativeTarget "shenyi weibo" */ = {
+		22FE7E571BE100DA002B30A1 /* Build configuration list for PBXNativeTarget "shenyi 微博" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				22FE7E581BE100DA002B30A1 /* Debug */,
@@ -712,7 +746,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		22FE7E5A1BE100DA002B30A1 /* Build configuration list for PBXNativeTarget "shenyi weiboTests" */ = {
+		22FE7E5A1BE100DA002B30A1 /* Build configuration list for PBXNativeTarget "shenyi 微博Tests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				22FE7E5B1BE100DA002B30A1 /* Debug */,
@@ -721,7 +755,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		22FE7E5D1BE100DA002B30A1 /* Build configuration list for PBXNativeTarget "shenyi weiboUITests" */ = {
+		22FE7E5D1BE100DA002B30A1 /* Build configuration list for PBXNativeTarget "shenyi 微博UITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				22FE7E5E1BE100DA002B30A1 /* Debug */,

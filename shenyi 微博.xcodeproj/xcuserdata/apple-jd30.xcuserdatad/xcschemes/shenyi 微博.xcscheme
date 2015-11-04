@@ -16,8 +16,8 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "22FE7E291BE100DA002B30A1"
                BuildableName = "shenyi weibo.app"
-               BlueprintName = "shenyi weibo"
-               ReferencedContainer = "container:shenyi weibo.xcodeproj">
+               BlueprintName = "shenyi &#x5fae;&#x535a;"
+               ReferencedContainer = "container:shenyi &#x5fae;&#x535a;.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "22FE7E421BE100DA002B30A1"
-               BuildableName = "shenyi weibo.xctest"
-               BlueprintName = "shenyi weiboTests"
-               ReferencedContainer = "container:shenyi weibo.xcodeproj">
+               BuildableName = "shenyi &#x5fae;&#x535a;.xctest"
+               BlueprintName = "shenyi &#x5fae;&#x535a;Tests"
+               ReferencedContainer = "container:shenyi &#x5fae;&#x535a;.xcodeproj">
             </BuildableReference>
          </TestableReference>
          <TestableReference
@@ -43,9 +43,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "22FE7E4D1BE100DA002B30A1"
-               BuildableName = "shenyi weibo.xctest"
-               BlueprintName = "shenyi weiboUITests"
-               ReferencedContainer = "container:shenyi weibo.xcodeproj">
+               BuildableName = "shenyi &#x5fae;&#x535a;.xctest"
+               BlueprintName = "shenyi &#x5fae;&#x535a;UITests"
+               ReferencedContainer = "container:shenyi &#x5fae;&#x535a;.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -54,8 +54,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "22FE7E291BE100DA002B30A1"
             BuildableName = "shenyi weibo.app"
-            BlueprintName = "shenyi weibo"
-            ReferencedContainer = "container:shenyi weibo.xcodeproj">
+            BlueprintName = "shenyi &#x5fae;&#x535a;"
+            ReferencedContainer = "container:shenyi &#x5fae;&#x535a;.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -77,8 +77,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "22FE7E291BE100DA002B30A1"
             BuildableName = "shenyi weibo.app"
-            BlueprintName = "shenyi weibo"
-            ReferencedContainer = "container:shenyi weibo.xcodeproj">
+            BlueprintName = "shenyi &#x5fae;&#x535a;"
+            ReferencedContainer = "container:shenyi &#x5fae;&#x535a;.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -96,8 +96,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "22FE7E291BE100DA002B30A1"
             BuildableName = "shenyi weibo.app"
-            BlueprintName = "shenyi weibo"
-            ReferencedContainer = "container:shenyi weibo.xcodeproj">
+            BlueprintName = "shenyi &#x5fae;&#x535a;"
+            ReferencedContainer = "container:shenyi &#x5fae;&#x535a;.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
