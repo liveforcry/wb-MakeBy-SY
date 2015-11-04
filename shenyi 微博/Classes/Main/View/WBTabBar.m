@@ -64,7 +64,6 @@
     //self.items.count 。表示tabbar 里面有几个控件
     //badgeValue 其实是个value 它不可以设置图片
     [super layoutSubviews];
-    NSLog(@"%@", self.buttons);
     CGFloat w = self.bounds.size.width;
     CGFloat h = self.bounds.size.height;
     CGFloat btnW = w / (self.Items.count + 1);
@@ -72,6 +71,7 @@
     CGFloat btnX = 0;
     CGFloat btnY = 0;
     int i = 0;
+  
     for (UIView *p in self.buttons) {
             if (i == 2) {
                 i++;

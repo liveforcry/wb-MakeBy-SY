@@ -51,7 +51,6 @@
 //}
 #define mark TabbarDelegate
 -(void)tabBar :(WBTabBar *)tabBar didClickAtIndex :(NSInteger)index{
-    NSLog(@"22222222");
     self.selectedIndex = index;
 }
 #pragma mark 添加所有子控制器
