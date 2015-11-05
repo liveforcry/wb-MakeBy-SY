@@ -13,6 +13,7 @@
 		2204F1791BE9B46C004D93FE /* WBDiscoverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2204F1781BE9B46C004D93FE /* WBDiscoverViewController.m */; };
 		2204F17C1BE9B481004D93FE /* WBHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2204F17B1BE9B481004D93FE /* WBHomeViewController.m */; };
 		221441B61BE864D300DC2789 /* UIView+frame.m in Sources */ = {isa = PBXBuildFile; fileRef = 221441B51BE864D300DC2789 /* UIView+frame.m */; };
+		226D652E1BEA3E650046B104 /* WBSerachBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 226D652D1BEA3E650046B104 /* WBSerachBar.m */; };
 		2289D5C71BE7849900D03EED /* WBTabBarButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 2289D5C61BE7849900D03EED /* WBTabBarButton.m */; };
 		2289D5CA1BE784CA00D03EED /* WBbadgeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2289D5C91BE784CA00D03EED /* WBbadgeView.m */; };
 		22A872DC1BE3A1C800FB540D /* WBTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22A872C81BE3A1C800FB540D /* WBTabBarController.m */; };
@@ -58,6 +59,8 @@
 		221441B41BE864D300DC2789 /* UIView+frame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIView+frame.h"; path = "../../../../UIView+frame.h"; sourceTree = "<group>"; };
 		221441B51BE864D300DC2789 /* UIView+frame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIView+frame.m"; path = "../../../../UIView+frame.m"; sourceTree = "<group>"; };
 		226D652B1BEA2E1A0046B104 /* WB.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WB.pch; sourceTree = "<group>"; };
+		226D652C1BEA3E650046B104 /* WBSerachBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBSerachBar.h; sourceTree = "<group>"; };
+		226D652D1BEA3E650046B104 /* WBSerachBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBSerachBar.m; sourceTree = "<group>"; };
 		2289D5C51BE7849900D03EED /* WBTabBarButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBTabBarButton.h; sourceTree = "<group>"; };
 		2289D5C61BE7849900D03EED /* WBTabBarButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBTabBarButton.m; sourceTree = "<group>"; };
 		2289D5C81BE784CA00D03EED /* WBbadgeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBbadgeView.h; sourceTree = "<group>"; };
@@ -152,6 +155,8 @@
 		22A872C01BE3A1C800FB540D /* View */ = {
 			isa = PBXGroup;
 			children = (
+				226D652C1BEA3E650046B104 /* WBSerachBar.h */,
+				226D652D1BEA3E650046B104 /* WBSerachBar.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -512,6 +517,7 @@
 				221441B61BE864D300DC2789 /* UIView+frame.m in Sources */,
 				2289D5CA1BE784CA00D03EED /* WBbadgeView.m in Sources */,
 				2204F1761BE9B458004D93FE /* WBMessageViewController.m in Sources */,
+				226D652E1BEA3E650046B104 /* WBSerachBar.m in Sources */,
 				22A872DE1BE3A1C800FB540D /* AppDelegate.m in Sources */,
 				2204F1731BE9B441004D93FE /* WBProfileViewController.m in Sources */,
 				2204F16D1BE9B1B7004D93FE /* WBNavigationController.m in Sources */,
@@ -660,6 +666,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "apple-jd30.shenyi---";
 				PRODUCT_NAME = "shenyi 微博";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -674,6 +681,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "apple-jd30.shenyi---";
 				PRODUCT_NAME = "shenyi 微博";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

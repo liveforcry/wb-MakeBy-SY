@@ -16,12 +16,21 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    //设置titleView 为所搜框
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    UITextField *searchBar = [[UITextField alloc]initWithFrame:CGRectMake(0, 0, KWindowW, 35)];
+    searchBar.background = [UIImage imageWithStretchableName:@"searchbar_textfield_background"];
+    searchBar.placeholder = @"大家都在搜";
+    //设置左边的view
+    //用到initWithImage的方法UIImageView的大小和图片一样
+    UIImageView *imageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"searchbar_textfield_search_icon"]];
+    searchBar.font = [UIFont systemFontOfSize:13];
+    imageView.width += 10;
+    imageView.contentMode = UIViewContentModeCenter;
+    searchBar.leftView = imageView;
+    //必须设置编辑框的模式才可显示出来 应为显示是默认不显示的
+    searchBar.leftViewMode = UITextFieldViewModeAlways;
+    self.navigationItem.titleView = searchBar;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -32,12 +41,11 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Incomplete implementation, return the number of sections
     return 0;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete implementation, return the number of rows
+
     return 0;
 }
 

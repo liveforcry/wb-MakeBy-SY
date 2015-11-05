@@ -18,7 +18,7 @@
     [super viewDidLoad];
     UIBarButtonItem *item =[[ UIBarButtonItem alloc]initWithTitle:@"设置" style:UIBarButtonItemStyleBordered target:self action:@selector(setting)];
     self.navigationItem.rightBarButtonItem = item;
-    NSLog(@"self.title = %@",self.title);
+ 
 }
 
 - (void)didReceiveMemoryWarning {

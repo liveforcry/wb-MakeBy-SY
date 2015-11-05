@@ -10,4 +10,5 @@
 
 @interface UIImage (WBimage)
 +(instancetype)imageWithOriginalName :(NSString *)imageStr;
++(instancetype)imageWithStretchableName:(NSString *)imageName;
 @end
