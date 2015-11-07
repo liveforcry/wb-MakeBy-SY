@@ -30,6 +30,8 @@
 		22A872DF1BE3A1C800FB540D /* UIImage+WBimage.m in Sources */ = {isa = PBXBuildFile; fileRef = 22A872D61BE3A1C800FB540D /* UIImage+WBimage.m */; };
 		22A872E01BE3A1C800FB540D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 22A872D71BE3A1C800FB540D /* main.m */; };
 		22F1A22F1BE30B0F00093192 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22F1A22E1BE30B0F00093192 /* UIKit.framework */; };
+		22F5F1961BED8AAC00E947BE /* WBNewFectureController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22F5F1951BED8AAC00E947BE /* WBNewFectureController.m */; };
+		22F5F19C1BED94E100E947BE /* WBNewFectureCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 22F5F19B1BED94E100E947BE /* WBNewFectureCell.m */; };
 		22FE7E3A1BE100DA002B30A1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 22FE7E391BE100DA002B30A1 /* Assets.xcassets */; };
 		22FE7E3D1BE100DA002B30A1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22FE7E3B1BE100DA002B30A1 /* LaunchScreen.storyboard */; };
 		22FE7E481BE100DA002B30A1 /* shenyi___Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 22FE7E471BE100DA002B30A1 /* shenyi___Tests.m */; };
@@ -97,6 +99,10 @@
 		22A872D61BE3A1C800FB540D /* UIImage+WBimage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+WBimage.m"; sourceTree = "<group>"; };
 		22A872D71BE3A1C800FB540D /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		22F1A22E1BE30B0F00093192 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		22F5F1941BED8AAC00E947BE /* WBNewFectureController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBNewFectureController.h; sourceTree = "<group>"; };
+		22F5F1951BED8AAC00E947BE /* WBNewFectureController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBNewFectureController.m; sourceTree = "<group>"; };
+		22F5F19A1BED94E100E947BE /* WBNewFectureCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBNewFectureCell.h; sourceTree = "<group>"; };
+		22F5F19B1BED94E100E947BE /* WBNewFectureCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBNewFectureCell.m; sourceTree = "<group>"; };
 		22FE7E2A1BE100DA002B30A1 /* shenyi 微博.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "shenyi 微博.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		22FE7E391BE100DA002B30A1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		22FE7E3C1BE100DA002B30A1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -138,6 +144,7 @@
 		22A872BC1BE3A1C800FB540D /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				22F5F1901BED8A8000E947BE /* newFeature(新特性 */,
 				22A872D81BE3A1C800FB540D /* profile我 */,
 				22A872CD1BE3A1C800FB540D /* message消息 */,
 				22A872BD1BE3A1C800FB540D /* discover发现 */,
@@ -360,6 +367,41 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		22F5F1901BED8A8000E947BE /* newFeature(新特性 */ = {
+			isa = PBXGroup;
+			children = (
+				22F5F1911BED8A8000E947BE /* Controller */,
+				22F5F1921BED8A8000E947BE /* Model */,
+				22F5F1931BED8A8000E947BE /* View */,
+			);
+			path = "newFeature(新特性";
+			sourceTree = "<group>";
+		};
+		22F5F1911BED8A8000E947BE /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				22F5F1941BED8AAC00E947BE /* WBNewFectureController.h */,
+				22F5F1951BED8AAC00E947BE /* WBNewFectureController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		22F5F1921BED8A8000E947BE /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		22F5F1931BED8A8000E947BE /* View */ = {
+			isa = PBXGroup;
+			children = (
+				22F5F19A1BED94E100E947BE /* WBNewFectureCell.h */,
+				22F5F19B1BED94E100E947BE /* WBNewFectureCell.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		22FE7E211BE100DA002B30A1 = {
 			isa = PBXGroup;
 			children = (
@@ -551,6 +593,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				22F5F19C1BED94E100E947BE /* WBNewFectureCell.m in Sources */,
 				2204F1791BE9B46C004D93FE /* WBDiscoverViewController.m in Sources */,
 				226FF4631BEB718300DBCC8D /* WBTitleButton.m in Sources */,
 				2279239F1BECD87F00B6E970 /* WBTwoViewController.m in Sources */,
@@ -571,6 +614,7 @@
 				226FF48C1BEB739F00DBCC8D /* WBCover.m in Sources */,
 				226FF48F1BEB760C00DBCC8D /* UIBarButtonItem+WBItem.m in Sources */,
 				22A872DF1BE3A1C800FB540D /* UIImage+WBimage.m in Sources */,
+				22F5F1961BED8AAC00E947BE /* WBNewFectureController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

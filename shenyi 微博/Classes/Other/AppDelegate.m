@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "WBTabBarController.h"
+#import "WBNewFectureController.h"
 @interface AppDelegate ()
 
 @end
@@ -19,10 +20,14 @@
     // Override point for customization after application launch.
     //创建窗口
     self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
-    // 创建tabbar
-    WBTabBarController *tabbar = [[WBTabBarController alloc]init];
+    //判断是否有新版本
+    //如果系统有新版本好就运行新特性
+    WBNewFectureController *newFecture = [[WBNewFectureController alloc]init];
     
-    _window.rootViewController = tabbar;
+    // 创建tabbar
+//    WBTabBarController *tabbar = [[WBTabBarController alloc]init];
+    
+    _window.rootViewController = newFecture;
     
     [_window makeKeyAndVisible];
     return YES;
