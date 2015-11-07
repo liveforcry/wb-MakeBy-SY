@@ -10,4 +10,6 @@
 
 @interface WBNewFectureCell : UICollectionViewCell
 @property(nonatomic,strong)UIImage *image;
+//判断是否是最后一页
+-(void)setIndexLastRow :(NSIndexPath *)indexPath  count :(NSInteger )count;
 @end

@@ -29,12 +29,12 @@ static NSString *ID = @"cell";
 
 -(void)setPageController{
     UIPageControl *page = [[UIPageControl alloc]init];
-    _page=  page;
+    _page =  page;
     page.numberOfPages = 4;
     page.userInteractionEnabled = NO;
     page.pageIndicatorTintColor = [UIColor grayColor];
     page.currentPageIndicatorTintColor = [UIColor redColor];
-    page.center = CGPointMake(self.view.width * 0.5, self.view.height - 50);
+    page.center = CGPointMake(self.view.width * 0.5, self.view.height * 0.95 );
     
     [self.view addSubview:page];
 }
@@ -72,6 +72,7 @@ static NSString *ID = @"cell";
 
     NSString *imagePath = [NSString stringWithFormat:@"new_feature_%ld", indexPath.row + 1];
     cell.image = [UIImage imageNamed:imagePath];
+    [cell setIndexLastRow:indexPath count:4];
     return cell;
 }
 
