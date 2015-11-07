@@ -31,6 +31,9 @@
 #define KWindowW  [UIScreen mainScreen].bounds.size.width
 
 
+#define KKeyWindow   [UIApplication sharedApplication].keyWindow
+
+
 
 
 

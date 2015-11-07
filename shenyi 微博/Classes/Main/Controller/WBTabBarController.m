@@ -36,16 +36,24 @@
     [self setUpTabBar];
 }
 - (void)setUpTabBar{
-    WBTabBar *tabbar = [[WBTabBar alloc]initWithFrame:self.tabBar.frame];
+    WBTabBar *tabbar = [[WBTabBar alloc]initWithFrame:self.tabBar.bounds];
     tabbar.backgroundColor = [UIColor whiteColor];
     //看看着点
     //    [self setValue:tabbar forKeyPath:@"tabBar"];
-    [self.view addSubview:tabbar];
+    [self.tabBar addSubview:tabbar];
     tabbar.delegate = self;
     tabbar.Items = self.buttons;
-    [self.tabBar removeFromSuperview];
+//    [self.tabBar removeFromSuperview];
 }
 - (void)viewWillAppear:(BOOL)animated{
+    //系统的tabbarbutton 就会覆盖
+    //移除系统的tabbat
+    
+    for (UIView *p in self.tabBar.subviews) {
+        if ([p isKindOfClass:NSClassFromString(@"UITabBarButton")]) {
+            [p removeFromSuperview];
+        }
+    }
     [super viewWillAppear:animated];
 }
 //+(void)initialize{

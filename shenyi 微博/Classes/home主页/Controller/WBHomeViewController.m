@@ -7,21 +7,55 @@
 //
 
 #import "WBHomeViewController.h"
-
-@interface WBHomeViewController ()
-
+#import "WBOneViewController.h"
+#import "WBTitleButton.h"
+#import "WBCover.h"
+#import "WBPopMenu.h"
+#import "UIBarButtonItem+WBItem.h"
+@interface WBHomeViewController ()<WBCoverDelegate>
+@property(nonatomic,strong)WBOneViewController *one;
+@property(nonatomic,strong)WBTitleButton *titleBtn;
 @end
 
 @implementation WBHomeViewController
 
+- (WBTitleButton *)titleBtn {
+    if(_titleBtn == nil) {
+        _titleBtn = [[WBTitleButton alloc] init];
+    }
+    return _titleBtn;
+}
+
+- (WBOneViewController *)one {
+    if(_one == nil) {
+        _one = [[WBOneViewController alloc] init];
+    }
+    return _one;
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
+//    +(UIBarButtonItem *)initWithImage:(UIImage *)image HeightLight : (UIImage *)hImage  target : (id )target action : (SEL)sel ControlEvents :(UIControlEvents)controlEvents
+    UIBarButtonItem *leftItem = [UIBarButtonItem initWithImage:[UIImage imageNamed:@"navigationbar_friendsearch"] HeightLight:[UIImage imageNamed:@"navigationbar_friendsearch_highlighted"] target:self action:@selector(clickLeft) ControlEvents:UIControlEventTouchUpInside];
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
+  
+    UIBarButtonItem *rightItem = [UIBarButtonItem initWithImage:[UIImage imageNamed:@"navigationbar_pop"] HeightLight:[UIImage imageNamed:@"navigationbar_pop_highlighted"] target:self action:@selector(clickRight) ControlEvents:UIControlEventTouchUpInside];
+//    WBTitleButton *button = [WBTitleButton buttonWithType:0];
+//    _btn = button;
+    [self.titleBtn setTitle:@"首页" forState:UIControlStateNormal];
+    [_titleBtn setImage:[UIImage imageNamed:@"navigationbar_arrow_up"] forState:UIControlStateNormal];
+    [_titleBtn setImage:[UIImage imageNamed:@"navigationbar_arrow_down"] forState:UIControlStateSelected];
+    [_titleBtn addTarget:self action:@selector(clickTitle:) forControlEvents:UIControlEventTouchUpInside];
     
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    //高亮的适合不需要调整图片
+
+    _titleBtn.adjustsImageWhenHighlighted = NO;
+    
+    
+     self.navigationItem.rightBarButtonItem = rightItem;
+     self.navigationItem.leftBarButtonItem = leftItem;
+    self.navigationItem.titleView = _titleBtn;
+    
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -29,17 +63,53 @@
     // Dispose of any resources that can be recreated.
 }
 
+//点击了左边的按钮
+-(void)clickLeft{
+    
+}
+
+//点击了右边的按钮
+-(void)clickRight{
+    
+    WBOneViewController *vc = [[ WBOneViewController alloc]init];
+    //当push 的时候 就会隐藏底部条
+    //前提条件： 只会隐藏系统自带的tabbar
+    vc.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:vc animated:YES];
+}
+#pragma  mark CoverDelegate
+
+-(void)clickCover :(WBCover *)cover{
+    //隐藏pop 菜单
+    [WBPopMenu hide];
+    self.titleBtn.selected = NO;
+    
+}
+-(void)clickTitle : (UIButton *)button{
+    NSLog(@"clickTitle");
+    button.selected = !button.selected;
+    //弹出蒙版
+    WBCover *cover = [WBCover showCover];
+    cover.delegate =self;
+    CGFloat popW = 200;
+    CGFloat popH = popW;
+    CGFloat popX = (self.view.width - popW) * 0.5;
+    CGFloat popY = 55;
+    WBPopMenu *menu = [WBPopMenu showRect:CGRectMake(popX, popY, popW, popH)];
+    menu.conteView = self.one.view;
+}
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Incomplete implementation, return the number of sections
+
     return 0;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete implementation, return the number of rows
+
     return 0;
 }
+
 
 /*
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -94,5 +164,8 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+
+
 
 @end

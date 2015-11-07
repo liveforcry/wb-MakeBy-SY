@@ -17,9 +17,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     UIBarButtonItem *item =[[ UIBarButtonItem alloc]initWithTitle:@"发起聊天" style:UIBarButtonItemStyleBordered target:self action:@selector(chat)];
-    NSMutableDictionary *dict = [NSMutableDictionary dictionary];
-    dict[NSForegroundColorAttributeName] = [UIColor orangeColor];
-    [item setTitleTextAttributes:dict forState:UIControlStateNormal];
+    
     self.navigationItem.rightBarButtonItem = item;
    
 }

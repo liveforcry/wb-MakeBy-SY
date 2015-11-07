@@ -1,29 +1,39 @@
 //
-//  WBDiscoverViewController.m
-//  shenyi weibo
+//  WBOneViewController.m
+//  shenyi 微博
 //
-//  Created by apple-jd30 on 15/11/4.
+//  Created by apple-jd30 on 15/11/5.
 //  Copyright © 2015年 apple-jd30. All rights reserved.
 //
 
-#import "WBDiscoverViewController.h"
-#import "WBSerachBar.h"
-@interface WBDiscoverViewController ()
+#import "WBOneViewController.h"
+#import "UIBarButtonItem+WBItem.h"
+#import "WBTwoViewController.h"
+@interface WBOneViewController ()
 
 @end
 
-@implementation WBDiscoverViewController
+@implementation WBOneViewController
+//按钮调转
+
+- (IBAction)JumpTWO:(id)sender {
+    WBTwoViewController *vc= [WBTwoViewController new];
+    [self.navigationController pushViewController:vc animated:YES];
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    //设置titleView 为所搜框
-    
-    WBSerachBar *searchBar = [[WBSerachBar alloc]initWithFrame:CGRectMake(0, 0, KWindowW, 35)];
-        searchBar.placeholder = @"大家都在搜";
-        searchBar.font = [UIFont systemFontOfSize:13];
-        self.navigationItem.titleView = searchBar;
+  
 }
 
+
+//init 底层会调用initWithName
+- (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil{
+     NSLog(@"%s",__func__);
+   return  [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    
+   
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -31,24 +41,30 @@
 
 #pragma mark - Table view data source
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 0;
-}
+//- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+//
+//    return 1;
+//}
+//
+//- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+//
+//    return 3;
+//}
+//
+//
+//- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+//    static NSString *ID = @"cell";
+//    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
+//    if (cell == nil) {
+//        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ID];
+//         cell.backgroundColor  = [UIColor clearColor];
+//    }
+//   
+//    cell.textLabel.text = [NSString stringWithFormat:@"%ld",indexPath.row];
+//
+//    return cell;
+//}
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-
-    return 0;
-}
-
-/*
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
-    
-    // Configure the cell...
-    
-    return cell;
-}
-*/
 
 /*
 // Override to support conditional editing of the table view.

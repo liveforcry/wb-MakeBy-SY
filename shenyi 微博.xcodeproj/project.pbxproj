@@ -13,7 +13,15 @@
 		2204F1791BE9B46C004D93FE /* WBDiscoverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2204F1781BE9B46C004D93FE /* WBDiscoverViewController.m */; };
 		2204F17C1BE9B481004D93FE /* WBHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2204F17B1BE9B481004D93FE /* WBHomeViewController.m */; };
 		221441B61BE864D300DC2789 /* UIView+frame.m in Sources */ = {isa = PBXBuildFile; fileRef = 221441B51BE864D300DC2789 /* UIView+frame.m */; };
+		226279851BEAF98900124283 /* WBOneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 226279841BEAF98900124283 /* WBOneViewController.m */; };
 		226D652E1BEA3E650046B104 /* WBSerachBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 226D652D1BEA3E650046B104 /* WBSerachBar.m */; };
+		226FF4631BEB718300DBCC8D /* WBTitleButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 226FF4621BEB718300DBCC8D /* WBTitleButton.m */; };
+		226FF4891BEB738D00DBCC8D /* WBPopMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 226FF4881BEB738D00DBCC8D /* WBPopMenu.m */; };
+		226FF48C1BEB739F00DBCC8D /* WBCover.m in Sources */ = {isa = PBXBuildFile; fileRef = 226FF48B1BEB739F00DBCC8D /* WBCover.m */; };
+		226FF48F1BEB760C00DBCC8D /* UIBarButtonItem+WBItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 226FF48E1BEB760C00DBCC8D /* UIBarButtonItem+WBItem.m */; };
+		2279239B1BECCD9800B6E970 /* WBOneViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2279239A1BECCD9800B6E970 /* WBOneViewController.xib */; };
+		2279239F1BECD87F00B6E970 /* WBTwoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2279239D1BECD87F00B6E970 /* WBTwoViewController.m */; };
+		227923A01BECD87F00B6E970 /* WBTwoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2279239E1BECD87F00B6E970 /* WBTwoViewController.xib */; };
 		2289D5C71BE7849900D03EED /* WBTabBarButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 2289D5C61BE7849900D03EED /* WBTabBarButton.m */; };
 		2289D5CA1BE784CA00D03EED /* WBbadgeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2289D5C91BE784CA00D03EED /* WBbadgeView.m */; };
 		22A872DC1BE3A1C800FB540D /* WBTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22A872C81BE3A1C800FB540D /* WBTabBarController.m */; };
@@ -58,9 +66,23 @@
 		2204F17B1BE9B481004D93FE /* WBHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBHomeViewController.m; sourceTree = "<group>"; };
 		221441B41BE864D300DC2789 /* UIView+frame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIView+frame.h"; path = "../../../../UIView+frame.h"; sourceTree = "<group>"; };
 		221441B51BE864D300DC2789 /* UIView+frame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIView+frame.m"; path = "../../../../UIView+frame.m"; sourceTree = "<group>"; };
+		226279831BEAF98900124283 /* WBOneViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBOneViewController.h; sourceTree = "<group>"; };
+		226279841BEAF98900124283 /* WBOneViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBOneViewController.m; sourceTree = "<group>"; };
 		226D652B1BEA2E1A0046B104 /* WB.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WB.pch; sourceTree = "<group>"; };
 		226D652C1BEA3E650046B104 /* WBSerachBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBSerachBar.h; sourceTree = "<group>"; };
 		226D652D1BEA3E650046B104 /* WBSerachBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBSerachBar.m; sourceTree = "<group>"; };
+		226FF4611BEB718300DBCC8D /* WBTitleButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBTitleButton.h; sourceTree = "<group>"; };
+		226FF4621BEB718300DBCC8D /* WBTitleButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBTitleButton.m; sourceTree = "<group>"; };
+		226FF4871BEB738D00DBCC8D /* WBPopMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBPopMenu.h; sourceTree = "<group>"; };
+		226FF4881BEB738D00DBCC8D /* WBPopMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBPopMenu.m; sourceTree = "<group>"; };
+		226FF48A1BEB739F00DBCC8D /* WBCover.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBCover.h; sourceTree = "<group>"; };
+		226FF48B1BEB739F00DBCC8D /* WBCover.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBCover.m; sourceTree = "<group>"; };
+		226FF48D1BEB760C00DBCC8D /* UIBarButtonItem+WBItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+WBItem.h"; sourceTree = "<group>"; };
+		226FF48E1BEB760C00DBCC8D /* UIBarButtonItem+WBItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+WBItem.m"; sourceTree = "<group>"; };
+		2279239A1BECCD9800B6E970 /* WBOneViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WBOneViewController.xib; sourceTree = "<group>"; };
+		2279239C1BECD87F00B6E970 /* WBTwoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBTwoViewController.h; sourceTree = "<group>"; };
+		2279239D1BECD87F00B6E970 /* WBTwoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBTwoViewController.m; sourceTree = "<group>"; };
+		2279239E1BECD87F00B6E970 /* WBTwoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WBTwoViewController.xib; sourceTree = "<group>"; };
 		2289D5C51BE7849900D03EED /* WBTabBarButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBTabBarButton.h; sourceTree = "<group>"; };
 		2289D5C61BE7849900D03EED /* WBTabBarButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBTabBarButton.m; sourceTree = "<group>"; };
 		2289D5C81BE784CA00D03EED /* WBbadgeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBbadgeView.h; sourceTree = "<group>"; };
@@ -174,6 +196,12 @@
 		22A872C21BE3A1C800FB540D /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				2279239C1BECD87F00B6E970 /* WBTwoViewController.h */,
+				2279239D1BECD87F00B6E970 /* WBTwoViewController.m */,
+				2279239E1BECD87F00B6E970 /* WBTwoViewController.xib */,
+				226279831BEAF98900124283 /* WBOneViewController.h */,
+				226279841BEAF98900124283 /* WBOneViewController.m */,
+				2279239A1BECCD9800B6E970 /* WBOneViewController.xib */,
 				2204F17A1BE9B481004D93FE /* WBHomeViewController.h */,
 				2204F17B1BE9B481004D93FE /* WBHomeViewController.m */,
 			);
@@ -190,6 +218,12 @@
 		22A872C41BE3A1C800FB540D /* View */ = {
 			isa = PBXGroup;
 			children = (
+				226FF4611BEB718300DBCC8D /* WBTitleButton.h */,
+				226FF4621BEB718300DBCC8D /* WBTitleButton.m */,
+				226FF4871BEB738D00DBCC8D /* WBPopMenu.h */,
+				226FF4881BEB738D00DBCC8D /* WBPopMenu.m */,
+				226FF48A1BEB739F00DBCC8D /* WBCover.h */,
+				226FF48B1BEB739F00DBCC8D /* WBCover.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -285,6 +319,8 @@
 			children = (
 				22A872D51BE3A1C800FB540D /* UIImage+WBimage.h */,
 				22A872D61BE3A1C800FB540D /* UIImage+WBimage.m */,
+				226FF48D1BEB760C00DBCC8D /* UIBarButtonItem+WBItem.h */,
+				226FF48E1BEB760C00DBCC8D /* UIBarButtonItem+WBItem.m */,
 				221441B41BE864D300DC2789 /* UIView+frame.h */,
 				221441B51BE864D300DC2789 /* UIView+frame.m */,
 			);
@@ -488,6 +524,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				22FE7E3D1BE100DA002B30A1 /* LaunchScreen.storyboard in Resources */,
+				2279239B1BECCD9800B6E970 /* WBOneViewController.xib in Resources */,
+				227923A01BECD87F00B6E970 /* WBTwoViewController.xib in Resources */,
 				22FE7E3A1BE100DA002B30A1 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -514,18 +552,24 @@
 			buildActionMask = 2147483647;
 			files = (
 				2204F1791BE9B46C004D93FE /* WBDiscoverViewController.m in Sources */,
+				226FF4631BEB718300DBCC8D /* WBTitleButton.m in Sources */,
+				2279239F1BECD87F00B6E970 /* WBTwoViewController.m in Sources */,
 				221441B61BE864D300DC2789 /* UIView+frame.m in Sources */,
 				2289D5CA1BE784CA00D03EED /* WBbadgeView.m in Sources */,
 				2204F1761BE9B458004D93FE /* WBMessageViewController.m in Sources */,
 				226D652E1BEA3E650046B104 /* WBSerachBar.m in Sources */,
 				22A872DE1BE3A1C800FB540D /* AppDelegate.m in Sources */,
 				2204F1731BE9B441004D93FE /* WBProfileViewController.m in Sources */,
+				226FF4891BEB738D00DBCC8D /* WBPopMenu.m in Sources */,
 				2204F16D1BE9B1B7004D93FE /* WBNavigationController.m in Sources */,
 				22A872DD1BE3A1C800FB540D /* WBTabBar.m in Sources */,
 				2204F17C1BE9B481004D93FE /* WBHomeViewController.m in Sources */,
+				226279851BEAF98900124283 /* WBOneViewController.m in Sources */,
 				2289D5C71BE7849900D03EED /* WBTabBarButton.m in Sources */,
 				22A872DC1BE3A1C800FB540D /* WBTabBarController.m in Sources */,
 				22A872E01BE3A1C800FB540D /* main.m in Sources */,
+				226FF48C1BEB739F00DBCC8D /* WBCover.m in Sources */,
+				226FF48F1BEB760C00DBCC8D /* UIBarButtonItem+WBItem.m in Sources */,
 				22A872DF1BE3A1C800FB540D /* UIImage+WBimage.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
