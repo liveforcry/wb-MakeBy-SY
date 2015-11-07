@@ -14,20 +14,35 @@
 @end
 
 @implementation AppDelegate
-
-
+#define  WBversionKey @"version"
+//偏好设置存储的好处
+// 不用关心文件名
+//  快速进行键值对存储
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+
     //创建窗口
+    
     self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
+    
+    //获取当前的版本号
+    
+    NSString *currentVersion = [NSBundle mainBundle].infoDictionary[@"CFBundleVersion"];
+    //从偏好设置里面取上一次的版本号
+    NSString *lastVersion = [[NSUserDefaults standardUserDefaults] objectForKey:WBversionKey];
+    
     //判断是否有新版本
     //如果系统有新版本好就运行新特性
-    WBNewFectureController *newFecture = [[WBNewFectureController alloc]init];
-    
-    // 创建tabbar
-//    WBTabBarController *tabbar = [[WBTabBarController alloc]init];
-    
-    _window.rootViewController = newFecture;
+    if (![currentVersion isEqualToString:lastVersion]) {
+        WBNewFectureController *newFecture = [[WBNewFectureController alloc]init];
+          _window.rootViewController = newFecture;
+        //保存当前的版本号
+        [[NSUserDefaults standardUserDefaults] setObject:currentVersion forKey:WBversionKey];
+    }else{
+//         创建tabbar
+            WBTabBarController *tabbar = [[WBTabBarController alloc]init];
+            _window.rootViewController = tabbar;
+    }
+
     
     [_window makeKeyAndVisible];
     return YES;
