@@ -7,14 +7,16 @@
 //
 
 #import "AppDelegate.h"
-#import "WBTabBarController.h"
-#import "WBNewFectureController.h"
+
+#import "WBOAuthViewController.h"
+#import "WBAccountTool.h"
+#import "WBRootView.h"
 @interface AppDelegate ()
 
 @end
 
 @implementation AppDelegate
-#define  WBversionKey @"version"
+
 //偏好设置存储的好处
 // 不用关心文件名
 //  快速进行键值对存储
@@ -23,27 +25,15 @@
     //创建窗口
     
     self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
-    
-    //获取当前的版本号
-    
-    NSString *currentVersion = [NSBundle mainBundle].infoDictionary[@"CFBundleVersion"];
-    //从偏好设置里面取上一次的版本号
-    NSString *lastVersion = [[NSUserDefaults standardUserDefaults] objectForKey:WBversionKey];
-    
-    //判断是否有新版本
-    //如果系统有新版本好就运行新特性
-    if (![currentVersion isEqualToString:lastVersion]) {
-        WBNewFectureController *newFecture = [[WBNewFectureController alloc]init];
-          _window.rootViewController = newFecture;
-        //保存当前的版本号
-        [[NSUserDefaults standardUserDefaults] setObject:currentVersion forKey:WBversionKey];
+//    WBAccountTool
+    //判断是否授权
+    if ([WBAccountTool accout]) { //已近授权
+        [WBRootView setRootViewCnotroller:_window];
     }else{
-//         创建tabbar
-            WBTabBarController *tabbar = [[WBTabBarController alloc]init];
-            _window.rootViewController = tabbar;
+        WBOAuthViewController *OAuthvc = [[WBOAuthViewController alloc]init];
+        _window.rootViewController  =OAuthvc;
     }
-
-    
+ 
     [_window makeKeyAndVisible];
     return YES;
 }
@@ -57,6 +47,7 @@
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
 }
+
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
     // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
