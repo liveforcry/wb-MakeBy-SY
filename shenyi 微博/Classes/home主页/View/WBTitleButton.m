@@ -26,9 +26,9 @@
         return;
     }
     self.titleLabel.x = self.imageView.x;
-//    NSLog(@"image.x = %f", self.titleLabel.x);
+    NSLog(@"image.x = %f", self.titleLabel.x);
     self.imageView.x = CGRectGetMaxX(self.titleLabel.frame);
-//    NSLog(@"cgrect.x = %f",CGRectGetMaxX(self.titleLabel.frame));
+    NSLog(@"cgrect.x = %f",CGRectGetMaxX(self.titleLabel.frame));
 }
 - (void)setImage:(UIImage *)image forState:(UIControlState)state{
     [super setImage:image forState:state];

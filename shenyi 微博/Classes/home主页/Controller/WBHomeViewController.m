@@ -22,6 +22,7 @@
 - (WBTitleButton *)titleBtn {
     if(_titleBtn == nil) {
         _titleBtn = [[WBTitleButton alloc] init];
+        
     }
     return _titleBtn;
 }
@@ -35,12 +36,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 //    +(UIBarButtonItem *)initWithImage:(UIImage *)image HeightLight : (UIImage *)hImage  target : (id )target action : (SEL)sel ControlEvents :(UIControlEvents)controlEvents
-    UIBarButtonItem *leftItem = [UIBarButtonItem initWithImage:[UIImage imageNamed:@"navigationbar_friendsearch"] HeightLight:[UIImage imageNamed:@"navigationbar_friendsearch_highlighted"] target:self action:@selector(clickLeft) ControlEvents:UIControlEventTouchUpInside];
+     self.navigationItem.leftBarButtonItem = [UIBarButtonItem initWithImage:[UIImage imageNamed:@"navigationbar_friendsearch"] HeightLight:[UIImage imageNamed:@"navigationbar_friendsearch_highlighted"] target:self action:@selector(clickLeft) ControlEvents:UIControlEventTouchUpInside];
     
   
-    UIBarButtonItem *rightItem = [UIBarButtonItem initWithImage:[UIImage imageNamed:@"navigationbar_pop"] HeightLight:[UIImage imageNamed:@"navigationbar_pop_highlighted"] target:self action:@selector(clickRight) ControlEvents:UIControlEventTouchUpInside];
+     self.navigationItem.rightBarButtonItem = [UIBarButtonItem initWithImage:[UIImage imageNamed:@"navigationbar_pop"] HeightLight:[UIImage imageNamed:@"navigationbar_pop_highlighted"] target:self action:@selector(clickRight) ControlEvents:UIControlEventTouchUpInside];
 //    WBTitleButton *button = [WBTitleButton buttonWithType:0];
-//    _btn = button;
+//    _titleBtn = button;
     [self.titleBtn setTitle:@"首页" forState:UIControlStateNormal];
     [_titleBtn setImage:[UIImage imageNamed:@"navigationbar_arrow_up"] forState:UIControlStateNormal];
     [_titleBtn setImage:[UIImage imageNamed:@"navigationbar_arrow_down"] forState:UIControlStateSelected];
@@ -50,9 +51,7 @@
 
     _titleBtn.adjustsImageWhenHighlighted = NO;
     
-    
-     self.navigationItem.rightBarButtonItem = rightItem;
-     self.navigationItem.leftBarButtonItem = leftItem;
+
     self.navigationItem.titleView = _titleBtn;
     
     
