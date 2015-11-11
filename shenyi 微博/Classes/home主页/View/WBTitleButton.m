@@ -22,10 +22,11 @@
 }
 -(void)layoutSubviews{
     [super layoutSubviews];
-    if (self.currentImage == nil) {
+    NSLog(@"%s",__func__);
+    if (!self.currentImage) {
         return;
     }
-    self.titleLabel.x = self.imageView.x;
+    self.titleLabel.x = self.imageView.x ;
     NSLog(@"image.x = %f", self.titleLabel.x);
     self.imageView.x = CGRectGetMaxX(self.titleLabel.frame);
     NSLog(@"cgrect.x = %f",CGRectGetMaxX(self.titleLabel.frame));

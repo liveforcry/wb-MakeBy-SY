@@ -12,20 +12,26 @@
 #import "WBCover.h"
 #import "WBPopMenu.h"
 #import "UIBarButtonItem+WBItem.h"
+#import "AFNetworking.h"
+#import "WBAccountTool.h"
+#import "MJExtension.h"
+#import "WBStatusModel.h"
+#import "UIImageView+WebCache.h"
 @interface WBHomeViewController ()<WBCoverDelegate>
 @property(nonatomic,strong)WBOneViewController *one;
-@property(nonatomic,strong)WBTitleButton *titleBtn;
+@property(nonatomic,weak)WBTitleButton *titleBtn;
+@property(nonatomic,strong)NSMutableArray *statusArr;
 @end
 
 @implementation WBHomeViewController
 
-- (WBTitleButton *)titleBtn {
-    if(_titleBtn == nil) {
-        _titleBtn = [[WBTitleButton alloc] init];
-        
+- (NSMutableArray *)statusArr {
+    if(_statusArr == nil) {
+        _statusArr = [NSMutableArray array];
     }
-    return _titleBtn;
+    return _statusArr;
 }
+
 
 - (WBOneViewController *)one {
     if(_one == nil) {
@@ -36,27 +42,50 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 //    +(UIBarButtonItem *)initWithImage:(UIImage *)image HeightLight : (UIImage *)hImage  target : (id )target action : (SEL)sel ControlEvents :(UIControlEvents)controlEvents
-     self.navigationItem.leftBarButtonItem = [UIBarButtonItem initWithImage:[UIImage imageNamed:@"navigationbar_friendsearch"] HeightLight:[UIImage imageNamed:@"navigationbar_friendsearch_highlighted"] target:self action:@selector(clickLeft) ControlEvents:UIControlEventTouchUpInside];
-    
-  
-     self.navigationItem.rightBarButtonItem = [UIBarButtonItem initWithImage:[UIImage imageNamed:@"navigationbar_pop"] HeightLight:[UIImage imageNamed:@"navigationbar_pop_highlighted"] target:self action:@selector(clickRight) ControlEvents:UIControlEventTouchUpInside];
-//    WBTitleButton *button = [WBTitleButton buttonWithType:0];
-//    _titleBtn = button;
-    [self.titleBtn setTitle:@"首页" forState:UIControlStateNormal];
-    [_titleBtn setImage:[UIImage imageNamed:@"navigationbar_arrow_up"] forState:UIControlStateNormal];
-    [_titleBtn setImage:[UIImage imageNamed:@"navigationbar_arrow_down"] forState:UIControlStateSelected];
-    [_titleBtn addTarget:self action:@selector(clickTitle:) forControlEvents:UIControlEventTouchUpInside];
-    
-    //高亮的适合不需要调整图片
-
-    _titleBtn.adjustsImageWhenHighlighted = NO;
-    
-
-    self.navigationItem.titleView = _titleBtn;
-    
+    [self setUpNavigionBar];
+    [self loadNewsStatus];
     
 }
 
+//请求最新的微博数据
+
+-(void)loadNewsStatus{
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    NSString *path = @"https://api.weibo.com/2/statuses/friends_timeline.json";
+    NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+    dict[@"access_token"] =[WBAccountTool accout].access_token;
+    [manager GET:path parameters:dict success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        //请求到了数据  转化成模型
+        NSArray *dictArr = responseObject[@"statuses"];
+        self.statusArr =  (NSMutableArray *)[WBStatusModel objectArrayWithKeyValuesArray:dictArr];
+        //刷新数据
+        [self.tableView reloadData];
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        
+    }];
+}
+
+-(void)setUpNavigionBar{
+    self.navigationItem.leftBarButtonItem = [UIBarButtonItem initWithImage:[UIImage imageNamed:@"navigationbar_friendsearch"] HeightLight:[UIImage imageNamed:@"navigationbar_friendsearch_highlighted"] target:self action:@selector(clickLeft) ControlEvents:UIControlEventTouchUpInside];
+    
+    self.navigationItem.rightBarButtonItem = [UIBarButtonItem initWithImage:[UIImage imageNamed:@"navigationbar_pop"] HeightLight:[UIImage imageNamed:@"navigationbar_pop_highlighted"] target:self action:@selector(clickRight) ControlEvents:UIControlEventTouchUpInside];
+    WBTitleButton *button = [WBTitleButton buttonWithType:UIButtonTypeCustom];
+    _titleBtn = button;
+    [button setTitle:@"首页" forState:UIControlStateNormal];
+    
+    [button setImage:[UIImage imageNamed:@"navigationbar_arrow_up"] forState:UIControlStateNormal];
+    
+    [button setImage:[UIImage imageNamed:@"navigationbar_arrow_down"] forState:UIControlStateSelected];
+    
+    [button addTarget:self action:@selector(clickTitle:) forControlEvents:UIControlEventTouchUpInside];
+    
+    //高亮的适合不需要调整图片
+    
+    button.adjustsImageWhenHighlighted = NO;
+    
+    
+    self.navigationItem.titleView = button;
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -99,71 +128,28 @@
 }
 #pragma mark - Table view data source
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-
-    return 0;
-}
-
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 
-    return 0;
+    return self.statusArr.count;
 }
 
 
-/*
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
-    
-    // Configure the cell...
-    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
+    if (!cell) {
+        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"cell"];
+        
+    }
+    //用户的名称
+    WBStatusModel *model = self.statusArr[indexPath.row];
+    cell.textLabel.text = model.user.name;
+    NSLog(@"======%@",model.user.name );
+    [cell.imageView sd_setImageWithURL:model.user.profile_image_url placeholderImage:[UIImage imageNamed:@"timeline_image_placeholder"]];
+    cell.detailTextLabel.text = model.ext;
+    NSLog(@"-----%@",model.ext );
     return cell;
 }
-*/
-
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
-
 
 
 
