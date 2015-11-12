@@ -17,6 +17,7 @@
 #import "MJExtension.h"
 #import "WBStatusModel.h"
 #import "UIImageView+WebCache.h"
+#import "MJRefresh.h"
 @interface WBHomeViewController ()<WBCoverDelegate>
 @property(nonatomic,strong)WBOneViewController *one;
 @property(nonatomic,weak)WBTitleButton *titleBtn;
@@ -41,10 +42,13 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
-//    +(UIBarButtonItem *)initWithImage:(UIImage *)image HeightLight : (UIImage *)hImage  target : (id )target action : (SEL)sel ControlEvents :(UIControlEvents)controlEvents
     [self setUpNavigionBar];
-    [self loadNewsStatus];
-    
+//    [self loadNewsStatus];
+    //下拉刷新
+    [self.tableView addHeaderWithTarget:self action:@selector(loadNewsStatus)];
+    [self.tableView headerBeginRefreshing];
+    //加载更多
+    [self.tableView addFooterWithTarget:self action:@selector(loadMoreStatus)];
 }
 
 //请求最新的微博数据
@@ -53,18 +57,62 @@
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     NSString *path = @"https://api.weibo.com/2/statuses/friends_timeline.json";
     NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+
     dict[@"access_token"] =[WBAccountTool accout].access_token;
+    //有最新微博数据 才需要下面的新属性
+    if (self.statusArr.count) {
+        dict[@"since_id"] = [self.statusArr[0] idstr];
+       
+    }
+
     [manager GET:path parameters:dict success:^(AFHTTPRequestOperation *operation, id responseObject) {
         //请求到了数据  转化成模型
+        [self.tableView headerEndRefreshing];
         NSArray *dictArr = responseObject[@"statuses"];
-        self.statusArr =  (NSMutableArray *)[WBStatusModel objectArrayWithKeyValuesArray:dictArr];
+    
+       NSArray *status = (NSMutableArray *)[WBStatusModel objectArrayWithKeyValuesArray:dictArr];
         //刷新数据
+       
+        //这个status 数组的范围
+        NSIndexSet *indexSet = [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, status.count)];
+         //把status 数据插入到self.status数组中
+        [self.statusArr insertObjects:status atIndexes:indexSet];
+        
         [self.tableView reloadData];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         
     }];
 }
 
+-(void)loadMoreStatus{
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    NSString *path = @"https://api.weibo.com/2/statuses/friends_timeline.json";
+    NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+    
+    dict[@"access_token"] =[WBAccountTool accout].access_token;
+    //有最新微博数据 才需要下面的新属性
+    if (self.statusArr.count) {
+        long long maxId =[[[self.statusArr lastObject] idstr] longLongValue] - 1;
+        dict[@"max_id"] = [NSString stringWithFormat:@"%lld",maxId];
+        
+    }
+    
+    [manager GET:path parameters:dict success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        //请求到了数据  转化成模型
+        [self.tableView footerEndRefreshing];
+        NSArray *dictArr = responseObject[@"statuses"];
+        
+        NSArray *status = (NSMutableArray *)[WBStatusModel objectArrayWithKeyValuesArray:dictArr];
+        //刷新数据
+        [self.statusArr addObjectsFromArray:status];
+        
+        [self.tableView reloadData];
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        
+    }];
+    
+
+}
 -(void)setUpNavigionBar{
     self.navigationItem.leftBarButtonItem = [UIBarButtonItem initWithImage:[UIImage imageNamed:@"navigationbar_friendsearch"] HeightLight:[UIImage imageNamed:@"navigationbar_friendsearch_highlighted"] target:self action:@selector(clickLeft) ControlEvents:UIControlEventTouchUpInside];
     

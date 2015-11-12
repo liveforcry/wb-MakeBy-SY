@@ -10,7 +10,9 @@
 #import "MJExtension.h"
 @class WBUserModel;
 @interface WBStatusModel : NSObject<MJKeyValue>
-
+/**
+ *  微博创建时间
+ */
 @property(nonatomic,strong)NSString *created_at;
 /**
  *  字符串型的微博ID
