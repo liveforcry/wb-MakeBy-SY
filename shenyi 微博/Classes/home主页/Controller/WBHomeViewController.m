@@ -138,19 +138,18 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
     if (!cell) {
-        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"cell"];
+        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"cell"];
         
     }
     //用户的名称
     WBStatusModel *model = self.statusArr[indexPath.row];
     cell.textLabel.text = model.user.name;
-    NSLog(@"======%@",model.user.name );
+   
     [cell.imageView sd_setImageWithURL:model.user.profile_image_url placeholderImage:[UIImage imageNamed:@"timeline_image_placeholder"]];
-    cell.detailTextLabel.text = model.ext;
-    NSLog(@"-----%@",model.ext );
+    cell.detailTextLabel.text = model.text;
+    
     return cell;
 }
-
 
 
 @end

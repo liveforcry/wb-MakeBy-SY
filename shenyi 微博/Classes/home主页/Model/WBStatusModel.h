@@ -19,7 +19,7 @@
 /**
  *  微博信息内容
  */
-@property(nonatomic,strong)NSString *ext;
+@property(nonatomic,strong)NSString *text;
 /**
  *  微博来源
  */

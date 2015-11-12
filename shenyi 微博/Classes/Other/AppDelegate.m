@@ -11,6 +11,7 @@
 #import "WBOAuthViewController.h"
 #import "WBAccountTool.h"
 #import "WBRootView.h"
+#import "UIImageView+WebCache.h"
 @interface AppDelegate ()
 
 @end
@@ -61,4 +62,16 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
+
+//接受到内存的警告
+-(void)applicationDidReceiveMemoryWarning:(UIApplication *)application{
+    //停止所有的下载  是应为sdImageView 会造成内容警告
+    
+    //WBwebImageManager 单例模式 sharedManager
+    
+    [[SDWebImageManager sharedManager] cancelAll];
+    
+    //删除内存
+    [[SDWebImageManager sharedManager].imageCache clearMemory];
+}
 @end
