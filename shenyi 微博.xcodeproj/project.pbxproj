@@ -27,6 +27,18 @@
 		227923A01BECD87F00B6E970 /* WBTwoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2279239E1BECD87F00B6E970 /* WBTwoViewController.xib */; };
 		2289D5C71BE7849900D03EED /* WBTabBarButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 2289D5C61BE7849900D03EED /* WBTabBarButton.m */; };
 		2289D5CA1BE784CA00D03EED /* WBbadgeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2289D5C91BE784CA00D03EED /* WBbadgeView.m */; };
+		229182311BF4692F00411F16 /* WBHttp.m in Sources */ = {isa = PBXBuildFile; fileRef = 229182301BF4692F00411F16 /* WBHttp.m */; };
+		229182361BF4722100411F16 /* WBStatusTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 229182351BF4722100411F16 /* WBStatusTool.m */; };
+		2291823E1BF4810B00411F16 /* WBParam.m in Sources */ = {isa = PBXBuildFile; fileRef = 2291823D1BF4810B00411F16 /* WBParam.m */; };
+		229182411BF4831100411F16 /* WBResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 229182401BF4831100411F16 /* WBResult.m */; };
+		229182481BF48DE600411F16 /* WBAccountParam.m in Sources */ = {isa = PBXBuildFile; fileRef = 229182471BF48DE600411F16 /* WBAccountParam.m */; };
+		2291824E1BF493AC00411F16 /* WBUserParam.m in Sources */ = {isa = PBXBuildFile; fileRef = 2291824D1BF493AC00411F16 /* WBUserParam.m */; };
+		229182511BF493BB00411F16 /* WBUserResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 229182501BF493BB00411F16 /* WBUserResult.m */; };
+		229182551BF4944100411F16 /* WBBestParam.m in Sources */ = {isa = PBXBuildFile; fileRef = 229182541BF4944100411F16 /* WBBestParam.m */; };
+		229182581BF4984800411F16 /* WBUserTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 229182571BF4984800411F16 /* WBUserTool.m */; };
+		2291825A1BF4B54100411F16 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 229182591BF4B54100411F16 /* AVFoundation.framework */; };
+		2291825C1BF4B65400411F16 /* silence.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2291825B1BF4B65400411F16 /* silence.mp3 */; };
+		229182601BF4B72D00411F16 /* 爸比我要喝奶奶.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2291825F1BF4B72D00411F16 /* 爸比我要喝奶奶.mp3 */; };
 		22A872DC1BE3A1C800FB540D /* WBTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22A872C81BE3A1C800FB540D /* WBTabBarController.m */; };
 		22A872DD1BE3A1C800FB540D /* WBTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 22A872CC1BE3A1C800FB540D /* WBTabBar.m */; };
 		22A872DE1BE3A1C800FB540D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 22A872D31BE3A1C800FB540D /* AppDelegate.m */; };
@@ -149,6 +161,27 @@
 		2289D5C61BE7849900D03EED /* WBTabBarButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBTabBarButton.m; sourceTree = "<group>"; };
 		2289D5C81BE784CA00D03EED /* WBbadgeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBbadgeView.h; sourceTree = "<group>"; };
 		2289D5C91BE784CA00D03EED /* WBbadgeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBbadgeView.m; sourceTree = "<group>"; };
+		2291822F1BF4692F00411F16 /* WBHttp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WBHttp.h; path = ../RootViewTool/WBHttp.h; sourceTree = "<group>"; };
+		229182301BF4692F00411F16 /* WBHttp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WBHttp.m; path = ../RootViewTool/WBHttp.m; sourceTree = "<group>"; };
+		229182341BF4722100411F16 /* WBStatusTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBStatusTool.h; sourceTree = "<group>"; };
+		229182351BF4722100411F16 /* WBStatusTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBStatusTool.m; sourceTree = "<group>"; };
+		2291823C1BF4810B00411F16 /* WBParam.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBParam.h; sourceTree = "<group>"; };
+		2291823D1BF4810B00411F16 /* WBParam.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBParam.m; sourceTree = "<group>"; };
+		2291823F1BF4831000411F16 /* WBResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBResult.h; sourceTree = "<group>"; };
+		229182401BF4831100411F16 /* WBResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBResult.m; sourceTree = "<group>"; };
+		229182461BF48DE600411F16 /* WBAccountParam.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBAccountParam.h; sourceTree = "<group>"; };
+		229182471BF48DE600411F16 /* WBAccountParam.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBAccountParam.m; sourceTree = "<group>"; };
+		2291824C1BF493AC00411F16 /* WBUserParam.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBUserParam.h; sourceTree = "<group>"; };
+		2291824D1BF493AC00411F16 /* WBUserParam.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBUserParam.m; sourceTree = "<group>"; };
+		2291824F1BF493BB00411F16 /* WBUserResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBUserResult.h; sourceTree = "<group>"; };
+		229182501BF493BB00411F16 /* WBUserResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBUserResult.m; sourceTree = "<group>"; };
+		229182531BF4944100411F16 /* WBBestParam.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBBestParam.h; sourceTree = "<group>"; };
+		229182541BF4944100411F16 /* WBBestParam.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBBestParam.m; sourceTree = "<group>"; };
+		229182561BF4984800411F16 /* WBUserTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBUserTool.h; sourceTree = "<group>"; };
+		229182571BF4984800411F16 /* WBUserTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBUserTool.m; sourceTree = "<group>"; };
+		229182591BF4B54100411F16 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		2291825B1BF4B65400411F16 /* silence.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = silence.mp3; path = "../../8. 微博项目/0312-微博6/Mp3/silence.mp3"; sourceTree = "<group>"; };
+		2291825F1BF4B72D00411F16 /* 爸比我要喝奶奶.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "爸比我要喝奶奶.mp3"; sourceTree = "<group>"; };
 		22A872C71BE3A1C800FB540D /* WBTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBTabBarController.h; sourceTree = "<group>"; };
 		22A872C81BE3A1C800FB540D /* WBTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBTabBarController.m; sourceTree = "<group>"; };
 		22A872CB1BE3A1C800FB540D /* WBTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBTabBar.h; sourceTree = "<group>"; };
@@ -282,6 +315,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2291825A1BF4B54100411F16 /* AVFoundation.framework in Frameworks */,
 				22F1A22F1BE30B0F00093192 /* UIKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -306,6 +340,12 @@
 		227043861BF0C9AB00A7578D /* Tool业务类 */ = {
 			isa = PBXGroup;
 			children = (
+				229182521BF4943300411F16 /* BaseParam */,
+				229182491BF4939000411F16 /* User */,
+				229182371BF480A800411F16 /* Param */,
+				229182381BF480A800411F16 /* result */,
+				229182331BF4720000411F16 /* status */,
+				229182321BF46C2300411F16 /* Http */,
 				2270438B1BF0D5F200A7578D /* RootViewTool */,
 				227043871BF0C9AB00A7578D /* AccountTool */,
 			);
@@ -315,6 +355,7 @@
 		227043871BF0C9AB00A7578D /* AccountTool */ = {
 			isa = PBXGroup;
 			children = (
+				229182421BF48DB200411F16 /* Param */,
 				227043881BF0C9D000A7578D /* WBAccountTool.h */,
 				227043891BF0C9D000A7578D /* WBAccountTool.m */,
 			);
@@ -328,6 +369,89 @@
 				2270438D1BF0D61400A7578D /* WBRootView.m */,
 			);
 			path = RootViewTool;
+			sourceTree = "<group>";
+		};
+		229182321BF46C2300411F16 /* Http */ = {
+			isa = PBXGroup;
+			children = (
+				2291822F1BF4692F00411F16 /* WBHttp.h */,
+				229182301BF4692F00411F16 /* WBHttp.m */,
+			);
+			path = Http;
+			sourceTree = "<group>";
+		};
+		229182331BF4720000411F16 /* status */ = {
+			isa = PBXGroup;
+			children = (
+				229182341BF4722100411F16 /* WBStatusTool.h */,
+				229182351BF4722100411F16 /* WBStatusTool.m */,
+			);
+			path = status;
+			sourceTree = "<group>";
+		};
+		229182371BF480A800411F16 /* Param */ = {
+			isa = PBXGroup;
+			children = (
+				2291823C1BF4810B00411F16 /* WBParam.h */,
+				2291823D1BF4810B00411F16 /* WBParam.m */,
+			);
+			path = Param;
+			sourceTree = "<group>";
+		};
+		229182381BF480A800411F16 /* result */ = {
+			isa = PBXGroup;
+			children = (
+				2291823F1BF4831000411F16 /* WBResult.h */,
+				229182401BF4831100411F16 /* WBResult.m */,
+			);
+			path = result;
+			sourceTree = "<group>";
+		};
+		229182421BF48DB200411F16 /* Param */ = {
+			isa = PBXGroup;
+			children = (
+				229182461BF48DE600411F16 /* WBAccountParam.h */,
+				229182471BF48DE600411F16 /* WBAccountParam.m */,
+			);
+			path = Param;
+			sourceTree = "<group>";
+		};
+		229182491BF4939000411F16 /* User */ = {
+			isa = PBXGroup;
+			children = (
+				2291824A1BF4939000411F16 /* UserParam */,
+				2291824B1BF4939000411F16 /* UserResult */,
+				229182561BF4984800411F16 /* WBUserTool.h */,
+				229182571BF4984800411F16 /* WBUserTool.m */,
+			);
+			path = User;
+			sourceTree = "<group>";
+		};
+		2291824A1BF4939000411F16 /* UserParam */ = {
+			isa = PBXGroup;
+			children = (
+				2291824C1BF493AC00411F16 /* WBUserParam.h */,
+				2291824D1BF493AC00411F16 /* WBUserParam.m */,
+			);
+			path = UserParam;
+			sourceTree = "<group>";
+		};
+		2291824B1BF4939000411F16 /* UserResult */ = {
+			isa = PBXGroup;
+			children = (
+				2291824F1BF493BB00411F16 /* WBUserResult.h */,
+				229182501BF493BB00411F16 /* WBUserResult.m */,
+			);
+			path = UserResult;
+			sourceTree = "<group>";
+		};
+		229182521BF4943300411F16 /* BaseParam */ = {
+			isa = PBXGroup;
+			children = (
+				229182531BF4944100411F16 /* WBBestParam.h */,
+				229182541BF4944100411F16 /* WBBestParam.m */,
+			);
+			path = BaseParam;
 			sourceTree = "<group>";
 		};
 		22A872BC1BE3A1C800FB540D /* Classes */ = {
@@ -788,6 +912,7 @@
 		22FE7E211BE100DA002B30A1 = {
 			isa = PBXGroup;
 			children = (
+				229182591BF4B54100411F16 /* AVFoundation.framework */,
 				22F1A22E1BE30B0F00093192 /* UIKit.framework */,
 				22FE7E2C1BE100DA002B30A1 /* shenyiWB */,
 				22FE7E461BE100DA002B30A1 /* shenyi 微博Tests */,
@@ -822,6 +947,8 @@
 		22FE7E2D1BE100DA002B30A1 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				2291825F1BF4B72D00411F16 /* 爸比我要喝奶奶.mp3 */,
+				2291825B1BF4B65400411F16 /* silence.mp3 */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -949,9 +1076,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				22AEE8C91BF33C4F00E702A5 /* LICENSE in Resources */,
+				229182601BF4B72D00411F16 /* 爸比我要喝奶奶.mp3 in Resources */,
 				22FE7E3D1BE100DA002B30A1 /* LaunchScreen.storyboard in Resources */,
 				22AEE9191BF3515C00E702A5 /* MJRefresh.bundle in Resources */,
 				2279239B1BECCD9800B6E970 /* WBOneViewController.xib in Resources */,
+				2291825C1BF4B65400411F16 /* silence.mp3 in Resources */,
 				22F5F1B01BEDFCDA00E947BE /* MBProgressHUD.bundle in Resources */,
 				227923A01BECD87F00B6E970 /* WBTwoViewController.xib in Resources */,
 				22FE7E3A1BE100DA002B30A1 /* Assets.xcassets in Resources */,
@@ -1001,12 +1130,14 @@
 				22AEE8CE1BF33C4F00E702A5 /* MJPropertyKey.m in Sources */,
 				22AEE8F81BF3514800E702A5 /* MKAnnotationView+WebCache.m in Sources */,
 				2289D5CA1BE784CA00D03EED /* WBbadgeView.m in Sources */,
+				229182481BF48DE600411F16 /* WBAccountParam.m in Sources */,
 				2204F1761BE9B458004D93FE /* WBMessageViewController.m in Sources */,
 				22F5F1CB1BEE056600E947BE /* AFURLConnectionOperation.m in Sources */,
 				22F5F1C71BEE056600E947BE /* AFHTTPRequestOperationManager.m in Sources */,
 				226D652E1BEA3E650046B104 /* WBSerachBar.m in Sources */,
 				22AEE8FF1BF3514800E702A5 /* SDWebImageManager.m in Sources */,
 				22A872DE1BE3A1C800FB540D /* AppDelegate.m in Sources */,
+				229182551BF4944100411F16 /* WBBestParam.m in Sources */,
 				22AEE8D11BF33C4F00E702A5 /* NSObject+MJCoding.m in Sources */,
 				22AEE9031BF3514800E702A5 /* UIImage+MultiFormat.m in Sources */,
 				22AEE9001BF3514800E702A5 /* SDWebImagePrefetcher.m in Sources */,
@@ -1017,12 +1148,16 @@
 				226FF4891BEB738D00DBCC8D /* WBPopMenu.m in Sources */,
 				2204F16D1BE9B1B7004D93FE /* WBNavigationController.m in Sources */,
 				22AEE9201BF3515C00E702A5 /* UIView+MJExtension.m in Sources */,
+				2291823E1BF4810B00411F16 /* WBParam.m in Sources */,
 				22AEE8FC1BF3514800E702A5 /* SDWebImageDecoder.m in Sources */,
 				22F5F1AF1BEDFCDA00E947BE /* MBProgressHUD+MJ.m in Sources */,
+				2291824E1BF493AC00411F16 /* WBUserParam.m in Sources */,
 				22AEE8AD1BF334AA00E702A5 /* WBStatusModel.m in Sources */,
 				22F5F1CE1BEE056600E947BE /* AFURLSessionManager.m in Sources */,
 				22A872DD1BE3A1C800FB540D /* WBTabBar.m in Sources */,
+				229182581BF4984800411F16 /* WBUserTool.m in Sources */,
 				22AEE8FB1BF3514800E702A5 /* SDWebImageCompat.m in Sources */,
+				229182361BF4722100411F16 /* WBStatusTool.m in Sources */,
 				22F5F1CA1BEE056600E947BE /* AFSecurityPolicy.m in Sources */,
 				22AEE9011BF3514800E702A5 /* UIButton+WebCache.m in Sources */,
 				2204F17C1BE9B481004D93FE /* WBHomeViewController.m in Sources */,
@@ -1033,16 +1168,19 @@
 				22F5F1C81BEE056600E947BE /* AFHTTPSessionManager.m in Sources */,
 				22AEE8FD1BF3514800E702A5 /* SDWebImageDownloader.m in Sources */,
 				22AEE9041BF3514800E702A5 /* UIImage+WebP.m in Sources */,
+				229182311BF4692F00411F16 /* WBHttp.m in Sources */,
 				22F5F1CC1BEE056600E947BE /* AFURLRequestSerialization.m in Sources */,
 				22AEE8FA1BF3514800E702A5 /* SDImageCache.m in Sources */,
 				22F5F1B11BEDFCDA00E947BE /* MBProgressHUD.m in Sources */,
 				2289D5C71BE7849900D03EED /* WBTabBarButton.m in Sources */,
 				22A872DC1BE3A1C800FB540D /* WBTabBarController.m in Sources */,
+				229182511BF493BB00411F16 /* WBUserResult.m in Sources */,
 				22AEE8F91BF3514800E702A5 /* NSData+ImageContentType.m in Sources */,
 				22A872E01BE3A1C800FB540D /* main.m in Sources */,
 				22AEE9021BF3514800E702A5 /* UIImage+GIF.m in Sources */,
 				226FF48C1BEB739F00DBCC8D /* WBCover.m in Sources */,
 				226FF48F1BEB760C00DBCC8D /* UIBarButtonItem+WBItem.m in Sources */,
+				229182411BF4831100411F16 /* WBResult.m in Sources */,
 				22AEE8CD1BF33C4F00E702A5 /* MJProperty.m in Sources */,
 				22AEE91A1BF3515C00E702A5 /* MJRefreshBaseView.m in Sources */,
 				227043851BF0BE8C00A7578D /* WBAccout.m in Sources */,

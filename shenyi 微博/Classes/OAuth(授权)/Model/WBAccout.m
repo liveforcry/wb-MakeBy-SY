@@ -5,12 +5,13 @@
 //  Created by apple-jd30 on 15/11/9.
 //  Copyright © 2015年 apple-jd30. All rights reserved.
 //
-
+#import "MJExtension.h"
 #import "WBAccout.h"
 #define accessTokenKey  @"token"
 #define expiresInKey @"expires"
 #define  uidKey  @"uid"
 #define  expiresDateKey @"date"
+#define  nameKey @"name"
 @implementation WBAccout
 +(instancetype)accountWithDic :(NSDictionary *)dict{
     WBAccout *accout = [[self alloc]init];
@@ -20,17 +21,13 @@
 
 // 实现归档时候调用  告诉系统要 把那个属性归档 怎么归档
 
--(void)encodeWithCoder:(NSCoder *)aCoder{
-    //将下面的属性归档
-    [aCoder encodeObject:_access_token forKey:accessTokenKey];
-    [aCoder encodeObject:_uid forKey:uidKey];
-    [aCoder encodeObject:_expires_in forKey:expiresInKey];
-    [aCoder encodeObject:_expires_data forKey:expiresDateKey];
-}
+
 - (void)setExpires_in:(NSString *)expires_in{
     _expires_in = expires_in;
     _expires_data = [NSDate dateWithTimeIntervalSinceNow:expires_in.longLongValue];
 }
+
+//MJCodingImplementation 一句话 把code 和 acode 来个方法都搞定
 //解析  解档的时候调用
 - (instancetype)initWithCoder:(NSCoder *)aDecoder{
     if (self = [super init]) {
@@ -38,10 +35,18 @@
        _uid = [aDecoder decodeObjectForKey:uidKey];
        _expires_in = [aDecoder decodeObjectForKey:expiresInKey];
         _expires_data = [aDecoder decodeObjectForKey:expiresDateKey];
+        _name = [aDecoder decodeObjectForKey:nameKey];
     }
     return self;
 }
-
+-(void)encodeWithCoder:(NSCoder *)aCoder{
+    //将下面的属性归档
+    [aCoder encodeObject:_access_token forKey:accessTokenKey];
+    [aCoder encodeObject:_uid forKey:uidKey];
+    [aCoder encodeObject:_expires_in forKey:expiresInKey];
+    [aCoder encodeObject:_expires_data forKey:expiresDateKey];
+    [aCoder encodeObject:_name forKey:nameKey];
+}
 
 @end
 

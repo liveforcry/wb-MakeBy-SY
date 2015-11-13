@@ -18,6 +18,10 @@
 #import "WBStatusModel.h"
 #import "UIImageView+WebCache.h"
 #import "MJRefresh.h"
+#import "WBHttp.h"
+#import "WBStatusTool.h"
+#import "WBParam.h"
+#import "WBUserTool.h"
 @interface WBHomeViewController ()<WBCoverDelegate>
 @property(nonatomic,strong)WBOneViewController *one;
 @property(nonatomic,weak)WBTitleButton *titleBtn;
@@ -33,7 +37,9 @@
     return _statusArr;
 }
 
-
+-(void)refresh{
+    [self.tableView headerBeginRefreshing];
+}
 - (WBOneViewController *)one {
     if(_one == nil) {
         _one = [[WBOneViewController alloc] init];
@@ -44,73 +50,79 @@
     [super viewDidLoad];
     [self setUpNavigionBar];
 //    [self loadNewsStatus];
+    
+//    if ([WBAccountTool accout]) {
+//        [self.titleBtn setTitle:[WBAccountTool accout].name forState:UIControlStateNormal];
+//    }
     //下拉刷新
     [self.tableView addHeaderWithTarget:self action:@selector(loadNewsStatus)];
     [self.tableView headerBeginRefreshing];
     //加载更多
     [self.tableView addFooterWithTarget:self action:@selector(loadMoreStatus)];
+    //获取当前用户名
+    [WBUserTool GetUserInformation:^(WBUserModel *result) {
+        
+        [self.titleBtn setTitle:result.name forState:UIControlStateNormal];
+        //获取当前用户
+       WBAccout *accout =  [WBAccountTool accout];
+        //把用户的名字添加到账号类中 在其中添加name 属性
+        accout.name = result.name;
+        //保存用户
+        [WBAccountTool  saveAccout:accout];
+        
+    } :^(NSError *error) {
+        
+    }];
+    
 }
 
 //请求最新的微博数据
 
 -(void)loadNewsStatus{
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    NSString *path = @"https://api.weibo.com/2/statuses/friends_timeline.json";
-    NSMutableDictionary *dict = [NSMutableDictionary dictionary];
-
-    dict[@"access_token"] =[WBAccountTool accout].access_token;
-    //有最新微博数据 才需要下面的新属性
-    if (self.statusArr.count) {
-        dict[@"since_id"] = [self.statusArr[0] idstr];
-       
-    }
-
-    [manager GET:path parameters:dict success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        //请求到了数据  转化成模型
-        [self.tableView headerEndRefreshing];
-        NSArray *dictArr = responseObject[@"statuses"];
+    NSString *sinceID = nil;
     
-       NSArray *status = (NSMutableArray *)[WBStatusModel objectArrayWithKeyValuesArray:dictArr];
-        //刷新数据
-       
-        //这个status 数组的范围
+    if (self.statusArr.count) {
+        sinceID = [self.statusArr[0] idstr];
+        
+    }
+    [WBStatusTool getNewstatuesSinceId:sinceID success:^(NSArray *status) {
+        
         NSIndexSet *indexSet = [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, status.count)];
-         //把status 数据插入到self.status数组中
+        
         [self.statusArr insertObjects:status atIndexes:indexSet];
         
+        [self.tableView headerEndRefreshing];
+        
         [self.tableView reloadData];
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        
+    } failure:^(NSError *error) {
         
     }];
-}
 
+
+}
+//加载更多数据
 -(void)loadMoreStatus{
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    NSString *path = @"https://api.weibo.com/2/statuses/friends_timeline.json";
-    NSMutableDictionary *dict = [NSMutableDictionary dictionary];
-    
-    dict[@"access_token"] =[WBAccountTool accout].access_token;
-    //有最新微博数据 才需要下面的新属性
+    NSString *maxId = nil;
     if (self.statusArr.count) {
-        long long maxId =[[[self.statusArr lastObject] idstr] longLongValue] - 1;
-        dict[@"max_id"] = [NSString stringWithFormat:@"%lld",maxId];
+        long long max =[[[self.statusArr lastObject] idstr] longLongValue] - 1;
+       maxId = [NSString stringWithFormat:@"%lld",max];
         
     }
-    
-    [manager GET:path parameters:dict success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        //请求到了数据  转化成模型
-        [self.tableView footerEndRefreshing];
-        NSArray *dictArr = responseObject[@"statuses"];
-        
-        NSArray *status = (NSMutableArray *)[WBStatusModel objectArrayWithKeyValuesArray:dictArr];
+    [WBStatusTool getMoretatuesSinceId:maxId success:^(NSArray *status) {
+   
         //刷新数据
+        [self.tableView footerEndRefreshing];
         [self.statusArr addObjectsFromArray:status];
         
         [self.tableView reloadData];
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        
+    } failure:^(NSError *error) {
         
     }];
-    
+
+   
+
 
 }
 -(void)setUpNavigionBar{
@@ -119,17 +131,21 @@
     self.navigationItem.rightBarButtonItem = [UIBarButtonItem initWithImage:[UIImage imageNamed:@"navigationbar_pop"] HeightLight:[UIImage imageNamed:@"navigationbar_pop_highlighted"] target:self action:@selector(clickRight) ControlEvents:UIControlEventTouchUpInside];
     WBTitleButton *button = [WBTitleButton buttonWithType:UIButtonTypeCustom];
     _titleBtn = button;
-    [button setTitle:@"首页" forState:UIControlStateNormal];
+    //判是否有用户
+    NSString *titleName = [WBAccountTool accout].name ? :@"首页";
+    [button setTitle:titleName forState:UIControlStateNormal];
     
     [button setImage:[UIImage imageNamed:@"navigationbar_arrow_up"] forState:UIControlStateNormal];
     
     [button setImage:[UIImage imageNamed:@"navigationbar_arrow_down"] forState:UIControlStateSelected];
     
-    [button addTarget:self action:@selector(clickTitle:) forControlEvents:UIControlEventTouchUpInside];
-    
     //高亮的适合不需要调整图片
     
     button.adjustsImageWhenHighlighted = NO;
+    
+    [button addTarget:self action:@selector(clickTitle:) forControlEvents:UIControlEventTouchUpInside];
+    
+
     
     
     self.navigationItem.titleView = button;

@@ -29,5 +29,10 @@
  *  用户唯一标识符
  */
 @property(nonatomic,strong)NSString *uid;
+/**
+ *  用户的名字
+ */
+@property(nonatomic,strong)NSString *name;
+
 +(instancetype)accountWithDic :(NSDictionary *)dict;
 @end

@@ -17,9 +17,13 @@
 #import "WBMessageViewController.h"
 #import "WBHomeViewController.h"
 #import "WBDiscoverViewController.h"
-
+#import "WBUserTool.h"
+#import "WBResult.h"
 @interface WBTabBarController ()<WBTabBarDelegate>
 @property(nonatomic,strong)NSMutableArray *buttons;
+@property(nonatomic,strong)WBHomeViewController *home;
+@property(nonatomic,strong)WBMessageViewController *message;
+@property(nonatomic,strong)WBProfileViewController *profile;
 @end
 
 @implementation WBTabBarController
@@ -34,6 +38,31 @@
     [super viewDidLoad];
     [self setUpAllChildViewController];
     [self setUpTabBar];
+    
+    [NSTimer scheduledTimerWithTimeInterval:3 target:self selector:@selector(changeBadgeValue) userInfo:self repeats:YES];
+    
+    
+    
+}
+
+-(void)changeBadgeValue{
+    NSLog(@"%s", __func__);
+    
+    
+    [WBUserTool unReadWithSuccess:^(WBUserResult *result) {
+        //设置首页的未读
+        _home.tabBarItem.badgeValue = [NSString stringWithFormat:@"%ld",result.status];
+        //设置消息的未读数
+        _message.tabBarItem.badgeValue = [NSString stringWithFormat:@"%ld",[result getMessageCount]];
+        
+        //设置我的未读数
+        _profile.tabBarItem.badgeValue = [NSString stringWithFormat:@"%ld",result.follower];
+        //图标显示所有未读消息  ios8以后要注册通知
+        [UIApplication sharedApplication].applicationIconBadgeNumber = result.getTotalCount;
+    } :^(NSError *error) {
+        
+    }];
+
 }
 - (void)setUpTabBar{
     WBTabBar *tabbar = [[WBTabBar alloc]initWithFrame:self.tabBar.bounds];
@@ -67,19 +96,25 @@
 //}
 #define mark TabbarDelegate
 -(void)tabBar :(WBTabBar *)tabBar didClickAtIndex :(NSInteger)index{
+    
+    
+    if (index == 0 && self.selectedIndex == index) {
+           [_home refresh];
+    }
     self.selectedIndex = index;
+    
 }
 #pragma mark 添加所有子控制器
 
 -(void)setUpAllChildViewController{
     WBHomeViewController *home = [WBHomeViewController new];
     [self addOneChildViewController:home Image:[UIImage imageNamed:@"tabbar_home"] SelecteImage:[UIImage imageWithOriginalName:@"tabbar_home_selected"] Title:@"首页"];
-    
+    self.home = home;
     
         //消息
-    WBMessageViewController *message = [WBMessageViewController new];
+  _message = [WBMessageViewController new];
    
-    [self addOneChildViewController:message Image:[UIImage imageNamed:@"tabbar_message_center"] SelecteImage:[UIImage imageWithOriginalName:@"tabbar_message_center_selected"] Title:@"消息"];
+    [self addOneChildViewController:_message Image:[UIImage imageNamed:@"tabbar_message_center"] SelecteImage:[UIImage imageWithOriginalName:@"tabbar_message_center_selected"] Title:@"消息"];
 
     
     //发现
@@ -88,8 +123,8 @@
   
 
     //我
-    WBProfileViewController *profile = [WBProfileViewController new];
-    [self addOneChildViewController:profile Image:[UIImage imageNamed:@"tabbar_profile"] SelecteImage:[UIImage imageWithOriginalName:@"tabbar_profile_selected"] Title:@"我"];
+    _profile = [WBProfileViewController new];
+    [self addOneChildViewController:_profile Image:[UIImage imageNamed:@"tabbar_profile"] SelecteImage:[UIImage imageWithOriginalName:@"tabbar_profile_selected"] Title:@"我"];
    
 ;
 
@@ -100,6 +135,7 @@
     vc.title = title;
     vc.tabBarItem.image = image;
     vc.tabBarItem.selectedImage = selectImage;
+//    vc.tabBarItem.badgeValue = @"1";
     [self.buttons addObject:vc.tabBarItem];
     WBNavigationController *controller = [[WBNavigationController alloc]initWithRootViewController:vc];
   

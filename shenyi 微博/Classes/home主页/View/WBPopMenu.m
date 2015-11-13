@@ -47,7 +47,7 @@
     CGFloat y = 9;
     CGFloat margin = 5;
     CGFloat x = margin;
-    CGFloat height = self.height - y - 2 *margin;
+    CGFloat height = self.height - y - 2 * margin;
     CGFloat weight = self.width - 2 *margin;
     _conteView.frame = CGRectMake(x, y, weight, height);
 }

@@ -22,21 +22,23 @@
 }
 -(void)layoutSubviews{
     [super layoutSubviews];
-    NSLog(@"%s",__func__);
-    if (!self.currentImage) {
+  
+    if (self.currentImage == nil) {
         return;
     }
-    self.titleLabel.x = self.imageView.x ;
-    NSLog(@"image.x = %f", self.titleLabel.x);
+    self.imageView.x = 0;
+    self.titleLabel.x =  self.imageView.x;
+ 
     self.imageView.x = CGRectGetMaxX(self.titleLabel.frame);
-    NSLog(@"cgrect.x = %f",CGRectGetMaxX(self.titleLabel.frame));
+
 }
 - (void)setImage:(UIImage *)image forState:(UIControlState)state{
     [super setImage:image forState:state];
     [self sizeToFit];
 }
--(void)setTitleColor:(UIColor *)color forState:(UIControlState)state{
-    [super setTitleColor:color forState:state];
+
+-(void)setTitle:(NSString *)title forState:(UIControlState)state{
+    [super setTitle:title forState:state];
     [self sizeToFit];
 }
 @end

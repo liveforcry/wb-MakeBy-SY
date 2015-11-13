@@ -15,4 +15,7 @@
 +(void)saveAccout : (WBAccout *)accout;
 //读取用户
 +(WBAccout *)accout;
+
+
++(void)accessFromCode:(NSString *)code success : (void(^)())success failure : (void(^)())failure;
 @end

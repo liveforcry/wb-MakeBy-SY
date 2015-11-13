@@ -12,8 +12,9 @@
 #import "WBAccountTool.h"
 #import "WBRootView.h"
 #import "UIImageView+WebCache.h"
+#import <AVFoundation/AVFoundation.h>
 @interface AppDelegate ()
-
+@property(nonatomic,strong)AVAudioPlayer *play;
 @end
 
 @implementation AppDelegate
@@ -27,6 +28,10 @@
     
     self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
 //    WBAccountTool
+    //注册通知
+    UIUserNotificationSettings *setting = [UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeBadge categories:nil];
+    [application registerUserNotificationSettings:setting];
+    
     //判断是否授权
     if ([WBAccountTool accout]) { //已近授权
         [WBRootView setRootViewCnotroller:_window];
@@ -38,15 +43,23 @@
     [_window makeKeyAndVisible];
     return YES;
 }
-
+//失去焦点
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
     // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
+    NSURL *path  = [[NSBundle mainBundle] URLForResource:@"silence.mp3" withExtension:nil];
+    AVAudioPlayer *play = [[AVAudioPlayer alloc]initWithContentsOfURL:path error:nil];
+    _play = play;
+    [play prepareToPlay];
+    play.numberOfLoops = -1;
+    [play play];
 }
 
 - (void)applicationDidEnterBackground:(UIApplication *)application {
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+    
+    
 }
 
 

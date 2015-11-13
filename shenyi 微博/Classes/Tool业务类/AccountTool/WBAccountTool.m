@@ -8,6 +8,9 @@
 
 #import "WBAccountTool.h"
 #import "WBAccout.h"
+#import "AFNetworking.h"
+#import "WBHttp.h"
+#import "WBAccountParam.h"
 @implementation WBAccountTool
 
 
@@ -15,7 +18,7 @@
 static   WBAccout *_accout;
 //存储用户
 +(void)saveAccout : (WBAccout *)accout{
-    NSLog(@"path  = %@", WBAccoutFileName);
+   
      [NSKeyedArchiver  archiveRootObject:accout toFile:WBAccoutFileName];
 }
 //读取用户
@@ -30,4 +33,52 @@ static   WBAccout *_accout;
     }
    return _accout;
 }
+
++(void)accessFromCode:(NSString *)code success : (void(^)())success failure : (void(^)())failure{
+     WBAccountParam *param = [WBAccountParam new];
+    param.client_id  =  @"2633698939";
+    param.client_secret = @"b7ee44a88eda261e01043526c5c87981";
+    param.grant_type = @"authorization_code";
+    param.code = code;
+    param.redirect_uri =@"https://www.baidu.com";
+    [WBHttp Post:@"https://api.weibo.com/oauth2/access_token" parameters:param.keyValues success:^(id responseObject) {
+        //字典 转模型
+        WBAccout *accout = [WBAccout accountWithDic:responseObject];
+        //        保持用户登入信息
+        [ WBAccountTool  saveAccout:accout];
+        if (success) {
+            success();
+        }
+        
+    } failure:^(NSError *error) {
+        if (failure) {
+            failure();
+        }
+    }];
+
+        //应为每一次获取到的access_token数据是一样的 所以我门 可以保持用户登入信息
+ 
+        //会保持 应为把一个模型 规档 要遵守nscoding 协议
+
+
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 @end

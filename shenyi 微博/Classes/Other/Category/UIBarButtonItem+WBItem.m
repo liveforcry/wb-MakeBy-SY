@@ -12,8 +12,8 @@
 +(UIBarButtonItem *)initWithImage:(UIImage *)image HeightLight : (UIImage *)hImage  target : (id )target action : (SEL)sel ControlEvents :(UIControlEvents)controlEvents{
     
     UIButton *button = [UIButton buttonWithType:0];
-    [button setImage:image forState:UIControlStateNormal];
-    [button setImage:hImage forState:UIControlStateHighlighted];
+    [button setBackgroundImage:image forState:UIControlStateNormal];
+    [button setBackgroundImage:hImage forState:UIControlStateHighlighted];
     [button sizeToFit];
     [button addTarget:target action:sel forControlEvents:controlEvents];
   

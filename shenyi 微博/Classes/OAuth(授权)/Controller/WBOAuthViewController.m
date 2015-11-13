@@ -8,11 +8,13 @@
 
 #import "WBOAuthViewController.h"
 #import "MBProgressHUD+MJ.h"
-#import "AFNetworking.h"
+
 #define WBOAuth
 #import "WBAccout.h"
 #import "WBAccountTool.h"
 #import "WBRootView.h"
+#import "WBAccountTool.h"
+
 @interface WBOAuthViewController ()<UIWebViewDelegate>
 
 @end
@@ -24,6 +26,7 @@
     
     UIWebView *webView = [[UIWebView alloc]initWithFrame:self.view.bounds];
     [self.view addSubview:webView];
+   
     // URL  + 请求参数 + 参数
     NSString *baseUrl = @"https://api.weibo.com/oauth2/authorize";
     NSString *client_id = @"2633698939";
@@ -77,31 +80,13 @@
 
 -(void)accessTokenFromCode:(NSString *)code{
     //创建一个请求管理器
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    NSMutableDictionary *dict = [NSMutableDictionary dictionary];
-    dict[@"client_id"] = @"2633698939";
-    dict[@"client_secret"] = @"b7ee44a88eda261e01043526c5c87981";
-    dict[@"grant_type"] = @"authorization_code";
-    dict[@"code"] = code;
-    dict[@"redirect_uri"] =@"https://www.baidu.com";
-    [manager POST:@"https://api.weibo.com/oauth2/access_token" parameters:dict success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSLog(@"response = %@",responseObject);
-        //应为每一次获取到的access_token数据是一样的 所以我门 可以保持用户登入信息
-        //字典 转模型
-        WBAccout *accout = [WBAccout accountWithDic:responseObject];
-//        保持用户登入信息
-        [ WBAccountTool  saveAccout:accout];
-        //会保持 应为把一个模型 规档 要遵守nscoding 协议
-       
+    [WBAccountTool accessFromCode:code success:^{
         //登入完后  显示新特性还是abbar 判断
         [WBRootView  setRootViewCnotroller:WBKeyWindow];
+    } failure:^{
         
-        
-        
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"error = %@",error);
     }];
-}
+   }
 //- (void)webView:(UIWebView *)webView didFailLoadWithError:(nullable NSError *){
 //    
 //}

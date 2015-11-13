@@ -31,13 +31,14 @@
 }
 - (void)setTabBarItem:(UITabBarItem *)TabBarItem{
     _TabBarItem = TabBarItem;
+    
     [self observeValueForKeyPath:nil ofObject:nil change:nil context:nil];
     
-    [self addObserver:self forKeyPath:@"title" options:0 context:nil];
-    [self addObserver:self forKeyPath:@"image" options:0 context:nil];
-    [self addObserver:self forKeyPath:@"selectedImage" options:0 context:nil];
+    [_TabBarItem addObserver:self forKeyPath:@"title" options:0 context:nil];
+    [_TabBarItem addObserver:self forKeyPath:@"image" options:0 context:nil];
+    [_TabBarItem addObserver:self forKeyPath:@"selectedImage" options:0 context:nil];
     //添加观察者模式
-    [self addObserver:self forKeyPath:@"badgeValue" options:0 context:nil];
+    [_TabBarItem addObserver:self forKeyPath:@"badgeValue" options:0 context:nil];
 }
 //一旦所观察的属性值发生变化 就执行下列方法
 -(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSString *,id> *)change context:(void *)context{
@@ -46,7 +47,9 @@
     [self setImage:_TabBarItem.image forState:UIControlStateNormal];
     
     [self setImage:_TabBarItem.selectedImage forState:UIControlStateSelected];
+    
     self.badge.badgeValue = _TabBarItem.badgeValue;
+    
 }
 
 
