@@ -49,11 +49,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setUpNavigionBar];
-//    [self loadNewsStatus];
     
-//    if ([WBAccountTool accout]) {
-//        [self.titleBtn setTitle:[WBAccountTool accout].name forState:UIControlStateNormal];
-//    }
     //下拉刷新
     [self.tableView addHeaderWithTarget:self action:@selector(loadNewsStatus)];
     [self.tableView headerBeginRefreshing];
@@ -61,7 +57,7 @@
     [self.tableView addFooterWithTarget:self action:@selector(loadMoreStatus)];
     //获取当前用户名
     [WBUserTool GetUserInformation:^(WBUserModel *result) {
-        
+
         [self.titleBtn setTitle:result.name forState:UIControlStateNormal];
         //获取当前用户
        WBAccout *accout =  [WBAccountTool accout];
@@ -76,6 +72,9 @@
     
 }
 
+
+
+
 //请求最新的微博数据
 
 -(void)loadNewsStatus{
@@ -86,7 +85,8 @@
         
     }
     [WBStatusTool getNewstatuesSinceId:sinceID success:^(NSArray *status) {
-        
+        // 显示几条微博数  有最新微博的适合
+        [self showNumberStatus:status.count];
         NSIndexSet *indexSet = [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, status.count)];
         
         [self.statusArr insertObjects:status atIndexes:indexSet];
@@ -98,8 +98,45 @@
     } failure:^(NSError *error) {
         
     }];
-
-
+    }
+//显示几条微博数量
+-(void)showNumberStatus : (NSInteger)number{
+    //没有微博就不显示
+    if (number == 0) {
+        return;
+    }
+    //显示最新微博数
+    NSInteger width =self.view.width;
+    NSInteger height = 35;
+    NSInteger x = 0;
+    
+    NSInteger h = CGRectGetMaxY(self.navigationController.navigationBar.frame);
+    NSInteger y = h - height;
+    UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(x, y, width, height)];
+    label.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"timeline_new_status_background"]];
+    label.text = [NSString stringWithFormat:@"最新微博数%ld", number];
+    label.textAlignment = NSTextAlignmentCenter;
+    label.textColor = [UIColor whiteColor];
+//    [self.view addSubview:label];
+    //在navigation控制器里面添加label
+    [self.navigationController.view insertSubview:label belowSubview:self.navigationController.navigationBar];
+    
+    //添加动画
+    //向下的动画
+    [UIView animateWithDuration:0.25 animations:^{
+        label.transform = CGAffineTransformMakeTranslation(0, height);
+    } completion:^(BOOL finished) {
+        
+        [UIView  animateWithDuration:0.25 delay:1 options:UIViewAnimationOptionCurveLinear  animations:^{
+            //返回原地方  还原
+            label.transform = CGAffineTransformIdentity;
+          
+            
+        } completion:^(BOOL finished) {
+            //移除label
+            [label removeFromSuperview];
+        }];
+    }];
 }
 //加载更多数据
 -(void)loadMoreStatus{
