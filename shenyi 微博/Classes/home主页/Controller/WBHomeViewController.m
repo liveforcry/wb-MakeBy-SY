@@ -22,19 +22,25 @@
 #import "WBStatusTool.h"
 #import "WBParam.h"
 #import "WBUserTool.h"
+#import "WBStatusCell.h"
+#import "WBViewModel.h"
+
 @interface WBHomeViewController ()<WBCoverDelegate>
 @property(nonatomic,strong)WBOneViewController *one;
 @property(nonatomic,weak)WBTitleButton *titleBtn;
-@property(nonatomic,strong)NSMutableArray *statusArr;
+/**
+ *  ViewModel  WBViewModel
+ */
+@property(nonatomic,strong)NSMutableArray *statusArrFrame;
 @end
 
 @implementation WBHomeViewController
 
-- (NSMutableArray *)statusArr {
-    if(_statusArr == nil) {
-        _statusArr = [NSMutableArray array];
+- (NSMutableArray *)statusArrFrame {
+    if(_statusArrFrame == nil) {
+        _statusArrFrame = [NSMutableArray array];
     }
-    return _statusArr;
+    return _statusArrFrame;
 }
 
 -(void)refresh{
@@ -80,16 +86,26 @@
 -(void)loadNewsStatus{
     NSString *sinceID = nil;
     
-    if (self.statusArr.count) {
-        sinceID = [self.statusArr[0] idstr];
+    if (self.statusArrFrame.count) {
+        WBViewModel *model = self.statusArrFrame[0];
+        sinceID = model.status.idstr;
         
     }
     [WBStatusTool getNewstatuesSinceId:sinceID success:^(NSArray *status) {
         // 显示几条微博数  有最新微博的适合
         [self showNumberStatus:status.count];
+        
+//        WBStatusModel -- >WBViewModel  模型转 ViewModel
+        NSMutableArray *dict = [NSMutableArray array];
+        for (WBStatusModel *model in status) {
+            WBViewModel *viewModel = [[WBViewModel alloc]init];
+            viewModel.status = model;
+            [dict addObject:viewModel];
+        }
+        
         NSIndexSet *indexSet = [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, status.count)];
         
-        [self.statusArr insertObjects:status atIndexes:indexSet];
+        [self.statusArrFrame insertObjects:dict atIndexes:indexSet];
         
         [self.tableView headerEndRefreshing];
         
@@ -141,8 +157,9 @@
 //加载更多数据
 -(void)loadMoreStatus{
     NSString *maxId = nil;
-    if (self.statusArr.count) {
-        long long max =[[[self.statusArr lastObject] idstr] longLongValue] - 1;
+    if (self.statusArrFrame.count) {
+        WBViewModel *model = [self.statusArrFrame lastObject];
+        long long max =[model.status.idstr longLongValue] - 1;
        maxId = [NSString stringWithFormat:@"%lld",max];
         
     }
@@ -150,7 +167,17 @@
    
         //刷新数据
         [self.tableView footerEndRefreshing];
-        [self.statusArr addObjectsFromArray:status];
+        
+        //        WBStatusModel -- >WBViewModel  模型转 ViewModel
+        NSMutableArray *dict = [NSMutableArray array];
+        for (WBStatusModel *model in status) {
+            WBViewModel *viewModel = [[WBViewModel alloc]init];
+            viewModel.status = model;
+            [dict addObject:viewModel];
+        }
+
+        
+        [self.statusArrFrame addObjectsFromArray:dict];
         
         [self.tableView reloadData];
         
@@ -231,26 +258,24 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 
-    return self.statusArr.count;
+    return self.statusArrFrame.count;
+
+
 }
 
-
-
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
-    if (!cell) {
-        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"cell"];
-        
-    }
-    //用户的名称
-    WBStatusModel *model = self.statusArr[indexPath.row];
-    cell.textLabel.text = model.user.name;
-   
-    [cell.imageView sd_setImageWithURL:model.user.profile_image_url placeholderImage:[UIImage imageNamed:@"timeline_image_placeholder"]];
-    cell.detailTextLabel.text = model.text;
+   WBStatusCell *cell =  [WBStatusCell getCellFromTabel:tableView];
+       //用户的名称
+
+    cell.statusViewModel = self.statusArrFrame[indexPath.row];
+
     
     return cell;
 }
 
-
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    WBViewModel *viewMode = self.statusArrFrame[indexPath.row];
+    return viewMode.cellTotalHeight;
+}
 @end

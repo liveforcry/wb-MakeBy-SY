@@ -11,6 +11,8 @@
 
 #import "UIImage+WBimage.h"
 #import "UIView+frame.h"
+//#import "SDImageCache.h"
+//#import "UIImageView+WebCache.h"
 // Include any system framework and library headers here that should be included in all compilation units.
 // You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
 #define WBKeyWindow [UIApplication sharedApplication].keyWindow
@@ -33,7 +35,12 @@
 
 #define KKeyWindow   [UIApplication sharedApplication].keyWindow
 
-
+#define KStatusCellMargin 10
+#define KNameFont [UIFont systemFontOfSize:13]
+#define KTimeFont [UIFont systemFontOfSize:12]
+#define KSourceFont KTimeFont
+#define KTextFont [UIFont systemFontOfSize:15]
+#define KScreenW [UIScreen mainScreen].bounds.size.width
 
 
 

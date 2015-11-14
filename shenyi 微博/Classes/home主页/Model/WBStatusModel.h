@@ -65,6 +65,15 @@
  *  微博头像
  */
 @property(nonatomic,strong)NSURL *profile_image_url;
+
+
+/** 会员类型 > 2代表是会员 */
+@property (nonatomic, assign) NSInteger mbtype;
+/** 会员等级 */
+@property (nonatomic, assign) NSInteger mbrank;
+
+
+@property (nonatomic, assign,getter=isVip) BOOL vip;
 @end
 
 

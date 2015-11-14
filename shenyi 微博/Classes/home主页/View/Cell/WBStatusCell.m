@@ -9,12 +9,13 @@
 #import "WBStatusCell.h"
 #import "WBOrigonl.h"
 #import "WBSeteWeed.h"
-#import "WBTabbar.h"
-
+#import "WBToolBar.h"
+#import "WBViewModel.h"
+#import "WBStatusModel.h"
 @interface WBStatusCell ()
 @property(nonatomic,strong)WBOrigonl *origionl;
 @property(nonatomic,strong)WBSeteWeed *seteWeed;
-@property(nonatomic,strong)WBTabbar  *tabbar;
+@property(nonatomic,strong)WBToolBar  *tabbar;
 @end
 @implementation WBStatusCell
 //等一下要给三个子视图赋值 所有要得到应用
@@ -49,13 +50,32 @@
     
     //设置tabbar
     
-   _tabbar = [[WBTabbar alloc]init];
+   _tabbar = [[WBToolBar alloc]init];
     [self.contentView addSubview:_tabbar];
     
 }
+- (void)setStatusViewModel:(WBViewModel *)statusViewModel{
+    _statusViewModel = statusViewModel;
+    
+    _origionl.frame = statusViewModel.origonlFrame;
+    _origionl.ViewModel = statusViewModel;
+    _seteWeed.frame = statusViewModel.seteWeedFrame;
+    _seteWeed.ViewModel = statusViewModel;
+    _tabbar.frame = statusViewModel.tabbarFrame;
+    _tabbar.ViewModel = statusViewModel;
+}
 
+//创建cell
 
-
++(instancetype)getCellFromTabel :(UITableView *)tableview{
+    id cell = [tableview dequeueReusableCellWithIdentifier:@"cell"];
+    if (!cell) {
+        cell = [[self alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"cell"];
+        
+    }
+    return cell;
+    
+}
 
 
 

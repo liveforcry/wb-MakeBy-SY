@@ -15,6 +15,13 @@
 @end
 @implementation WBUserModel
 
+
+- (void)setMbtype:(NSInteger)mbtype
+{
+    _mbtype = mbtype;
+    _vip = mbtype > 2;
+}
+
 @end
 
 @implementation WBPicUrlModel

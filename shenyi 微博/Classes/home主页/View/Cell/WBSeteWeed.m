@@ -24,10 +24,23 @@
     if (self = [super initWithFrame:frame]) {
         //设置所有的控件
         [self setUpAllChild];
+        self.userInteractionEnabled = YES;
+        self.image = [UIImage imageNamed:@"timeline_retweet_background"];
     }
     return self;
 }
-
+-(void)setViewModel:(WBViewModel *)ViewModel{
+     _ViewModel = ViewModel;
+    _nickNameLB.frame = _ViewModel.seteWeednickNameLBFrame;
+    _textLB.frame = _ViewModel.seteWeedtextLBFrame;
+    _textLB.numberOfLines = 0;
+    _nickNameLB.font = KNameFont;
+    _textLB.font = KTextFont;
+    //设置昵称
+    _nickNameLB.text = _ViewModel.status.retweeted_status.user.name;
+    //设置正文
+    _textLB.text = _ViewModel.status.retweeted_status.text;
+}
 -(void)setUpAllChild{
 
     //添加正文

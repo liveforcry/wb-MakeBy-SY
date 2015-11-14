@@ -39,6 +39,7 @@
 		2291825A1BF4B54100411F16 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 229182591BF4B54100411F16 /* AVFoundation.framework */; };
 		2291825C1BF4B65400411F16 /* silence.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2291825B1BF4B65400411F16 /* silence.mp3 */; };
 		229182601BF4B72D00411F16 /* 爸比我要喝奶奶.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2291825F1BF4B72D00411F16 /* 爸比我要喝奶奶.mp3 */; };
+		22973F591BF61308005C274F /* WBToolBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 22973F581BF61308005C274F /* WBToolBar.m */; };
 		22A872DC1BE3A1C800FB540D /* WBTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22A872C81BE3A1C800FB540D /* WBTabBarController.m */; };
 		22A872DD1BE3A1C800FB540D /* WBTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 22A872CC1BE3A1C800FB540D /* WBTabBar.m */; };
 		22A872DE1BE3A1C800FB540D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 22A872D31BE3A1C800FB540D /* AppDelegate.m */; };
@@ -101,7 +102,7 @@
 		22F837D21BF5CDC900D4878A /* WBStatusCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 22F837D11BF5CDC900D4878A /* WBStatusCell.m */; };
 		22F837D51BF5CFDA00D4878A /* WBOrigonl.m in Sources */ = {isa = PBXBuildFile; fileRef = 22F837D41BF5CFDA00D4878A /* WBOrigonl.m */; };
 		22F837D81BF5CFED00D4878A /* WBSeteWeed.m in Sources */ = {isa = PBXBuildFile; fileRef = 22F837D71BF5CFED00D4878A /* WBSeteWeed.m */; };
-		22F837DB1BF5CFF900D4878A /* WBTabbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 22F837DA1BF5CFF900D4878A /* WBTabbar.m */; };
+		22F837DF1BF5DA6700D4878A /* WBViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 22F837DE1BF5DA6700D4878A /* WBViewModel.m */; };
 		22FE7E3A1BE100DA002B30A1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 22FE7E391BE100DA002B30A1 /* Assets.xcassets */; };
 		22FE7E3D1BE100DA002B30A1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22FE7E3B1BE100DA002B30A1 /* LaunchScreen.storyboard */; };
 		22FE7E481BE100DA002B30A1 /* shenyi___Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 22FE7E471BE100DA002B30A1 /* shenyi___Tests.m */; };
@@ -186,6 +187,8 @@
 		229182591BF4B54100411F16 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		2291825B1BF4B65400411F16 /* silence.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = silence.mp3; path = "../../8. 微博项目/0312-微博6/Mp3/silence.mp3"; sourceTree = "<group>"; };
 		2291825F1BF4B72D00411F16 /* 爸比我要喝奶奶.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "爸比我要喝奶奶.mp3"; sourceTree = "<group>"; };
+		22973F571BF61308005C274F /* WBToolBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBToolBar.h; sourceTree = "<group>"; };
+		22973F581BF61308005C274F /* WBToolBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBToolBar.m; sourceTree = "<group>"; };
 		22A872C71BE3A1C800FB540D /* WBTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBTabBarController.h; sourceTree = "<group>"; };
 		22A872C81BE3A1C800FB540D /* WBTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBTabBarController.m; sourceTree = "<group>"; };
 		22A872CB1BE3A1C800FB540D /* WBTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBTabBar.h; sourceTree = "<group>"; };
@@ -308,8 +311,8 @@
 		22F837D41BF5CFDA00D4878A /* WBOrigonl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBOrigonl.m; sourceTree = "<group>"; };
 		22F837D61BF5CFED00D4878A /* WBSeteWeed.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBSeteWeed.h; sourceTree = "<group>"; };
 		22F837D71BF5CFED00D4878A /* WBSeteWeed.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBSeteWeed.m; sourceTree = "<group>"; };
-		22F837D91BF5CFF900D4878A /* WBTabbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBTabbar.h; sourceTree = "<group>"; };
-		22F837DA1BF5CFF900D4878A /* WBTabbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBTabbar.m; sourceTree = "<group>"; };
+		22F837DD1BF5DA6700D4878A /* WBViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBViewModel.h; sourceTree = "<group>"; };
+		22F837DE1BF5DA6700D4878A /* WBViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBViewModel.m; sourceTree = "<group>"; };
 		22FE7E2A1BE100DA002B30A1 /* shenyi 微博.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "shenyi 微博.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		22FE7E391BE100DA002B30A1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		22FE7E3C1BE100DA002B30A1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -520,6 +523,7 @@
 		22A872C11BE3A1C800FB540D /* home主页 */ = {
 			isa = PBXGroup;
 			children = (
+				22F837DC1BF5DA4B00D4878A /* viewModel */,
 				22A872C21BE3A1C800FB540D /* Controller */,
 				22A872C31BE3A1C800FB540D /* Model */,
 				22A872C41BE3A1C800FB540D /* View */,
@@ -931,10 +935,19 @@
 				22F837D41BF5CFDA00D4878A /* WBOrigonl.m */,
 				22F837D61BF5CFED00D4878A /* WBSeteWeed.h */,
 				22F837D71BF5CFED00D4878A /* WBSeteWeed.m */,
-				22F837D91BF5CFF900D4878A /* WBTabbar.h */,
-				22F837DA1BF5CFF900D4878A /* WBTabbar.m */,
+				22973F571BF61308005C274F /* WBToolBar.h */,
+				22973F581BF61308005C274F /* WBToolBar.m */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		22F837DC1BF5DA4B00D4878A /* viewModel */ = {
+			isa = PBXGroup;
+			children = (
+				22F837DD1BF5DA6700D4878A /* WBViewModel.h */,
+				22F837DE1BF5DA6700D4878A /* WBViewModel.m */,
+			);
+			path = viewModel;
 			sourceTree = "<group>";
 		};
 		22FE7E211BE100DA002B30A1 = {
@@ -1156,7 +1169,6 @@
 				221441B61BE864D300DC2789 /* UIView+frame.m in Sources */,
 				22AEE8D51BF33C4F00E702A5 /* README.md in Sources */,
 				22AEE8CE1BF33C4F00E702A5 /* MJPropertyKey.m in Sources */,
-				22F837DB1BF5CFF900D4878A /* WBTabbar.m in Sources */,
 				22AEE8F81BF3514800E702A5 /* MKAnnotationView+WebCache.m in Sources */,
 				2289D5CA1BE784CA00D03EED /* WBbadgeView.m in Sources */,
 				229182481BF48DE600411F16 /* WBAccountParam.m in Sources */,
@@ -1216,9 +1228,11 @@
 				22AEE8CD1BF33C4F00E702A5 /* MJProperty.m in Sources */,
 				22AEE91A1BF3515C00E702A5 /* MJRefreshBaseView.m in Sources */,
 				227043851BF0BE8C00A7578D /* WBAccout.m in Sources */,
+				22973F591BF61308005C274F /* WBToolBar.m in Sources */,
 				22A872DF1BE3A1C800FB540D /* UIImage+WBimage.m in Sources */,
 				22AEE91E1BF3515C00E702A5 /* UIScrollView+MJExtension.m in Sources */,
 				22AEE91F1BF3515C00E702A5 /* UIScrollView+MJRefresh.m in Sources */,
+				22F837DF1BF5DA6700D4878A /* WBViewModel.m in Sources */,
 				2270438E1BF0D61400A7578D /* WBRootView.m in Sources */,
 				22F5F1961BED8AAC00E947BE /* WBNewFectureController.m in Sources */,
 				22AEE8D21BF33C4F00E702A5 /* NSObject+MJKeyValue.m in Sources */,

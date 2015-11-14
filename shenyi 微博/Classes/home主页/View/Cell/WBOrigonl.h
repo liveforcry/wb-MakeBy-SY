@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "WBViewModel.h"
 
 @interface WBOrigonl : UIView
-
+@property(nonatomic,strong)WBViewModel *ViewModel;
 @end

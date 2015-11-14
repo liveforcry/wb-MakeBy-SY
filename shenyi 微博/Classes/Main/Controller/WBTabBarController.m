@@ -7,12 +7,9 @@
 //
 
 #import "WBTabBarController.h"
-#import "UIImage+WBimage.h"
-#import "WBTabBar.h"
-#import "WBTabBar.h"
+
+#import "WBTabbar.h"
 #import "WBNavigationController.h"
-
-
 #import "WBProfileViewController.h"
 #import "WBMessageViewController.h"
 #import "WBHomeViewController.h"

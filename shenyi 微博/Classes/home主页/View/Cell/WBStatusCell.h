@@ -8,6 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
+#import "WBViewModel.h"
 @interface WBStatusCell : UITableViewCell
+
+@property(nonatomic,strong)WBViewModel *statusViewModel;
+
+
+
++(instancetype)getCellFromTabel :(UITableView *)tableview;
 
 @end
