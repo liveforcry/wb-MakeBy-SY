@@ -7,13 +7,13 @@
 //
 
 #import "WBSeteWeed.h"
-
+#import "WBPhotoView.h"
 @interface WBSeteWeed()
 @property(nonatomic,strong)UILabel *textLB;
 
 @property(nonatomic,strong)UILabel *nickNameLB;
 
-
+@property(nonatomic,strong)WBPhotoView *photoView;
 @end
 
 
@@ -37,9 +37,15 @@
     _nickNameLB.font = KNameFont;
     _textLB.font = KTextFont;
     //设置昵称
-    _nickNameLB.text = _ViewModel.status.retweeted_status.user.name;
+    _nickNameLB.text = ViewModel.status.retweetedName;
+    _nickNameLB.textColor = [UIColor blueColor];
     //设置正文
     _textLB.text = _ViewModel.status.retweeted_status.text;
+//    #warning TODO  配图的数据
+
+    _photoView.frame = ViewModel.seteWeedPhtotFrame;
+    _photoView.pic_arr = ViewModel.status.retweeted_status.pic_urls;
+    
 }
 -(void)setUpAllChild{
 
@@ -51,9 +57,13 @@
     //添加昵称
     
     _nickNameLB = [[UILabel alloc]init];
-    [self addSubview:_nickNameLB];
-
     
+    [self addSubview:_nickNameLB];
+    
+    //添加配图
+    
+    _photoView  = [[WBPhotoView alloc]init];
+    [self addSubview:_photoView];
 }
 
 @end

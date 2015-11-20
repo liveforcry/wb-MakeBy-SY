@@ -83,6 +83,8 @@
 		22AEE91E1BF3515C00E702A5 /* UIScrollView+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 22AEE9141BF3515C00E702A5 /* UIScrollView+MJExtension.m */; };
 		22AEE91F1BF3515C00E702A5 /* UIScrollView+MJRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 22AEE9161BF3515C00E702A5 /* UIScrollView+MJRefresh.m */; };
 		22AEE9201BF3515C00E702A5 /* UIView+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 22AEE9181BF3515C00E702A5 /* UIView+MJExtension.m */; };
+		22DB6D931BF6D3390039814B /* NSDate+MJ.m in Sources */ = {isa = PBXBuildFile; fileRef = 22DB6D921BF6D3390039814B /* NSDate+MJ.m */; };
+		22DD6ACB1BFA0D6E007FA8FB /* WBPhotoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 22DD6ACA1BFA0D6E007FA8FB /* WBPhotoView.m */; };
 		22F1A22F1BE30B0F00093192 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22F1A22E1BE30B0F00093192 /* UIKit.framework */; };
 		22F5F1961BED8AAC00E947BE /* WBNewFectureController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22F5F1951BED8AAC00E947BE /* WBNewFectureController.m */; };
 		22F5F19C1BED94E100E947BE /* WBNewFectureCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 22F5F19B1BED94E100E947BE /* WBNewFectureCell.m */; };
@@ -274,6 +276,10 @@
 		22AEE9161BF3515C00E702A5 /* UIScrollView+MJRefresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+MJRefresh.m"; sourceTree = "<group>"; };
 		22AEE9171BF3515C00E702A5 /* UIView+MJExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+MJExtension.h"; sourceTree = "<group>"; };
 		22AEE9181BF3515C00E702A5 /* UIView+MJExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+MJExtension.m"; sourceTree = "<group>"; };
+		22DB6D911BF6D3390039814B /* NSDate+MJ.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+MJ.h"; sourceTree = "<group>"; };
+		22DB6D921BF6D3390039814B /* NSDate+MJ.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+MJ.m"; sourceTree = "<group>"; };
+		22DD6AC91BFA0D6E007FA8FB /* WBPhotoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBPhotoView.h; sourceTree = "<group>"; };
+		22DD6ACA1BFA0D6E007FA8FB /* WBPhotoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBPhotoView.m; sourceTree = "<group>"; };
 		22F1A22E1BE30B0F00093192 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		22F5F1941BED8AAC00E947BE /* WBNewFectureController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBNewFectureController.h; sourceTree = "<group>"; };
 		22F5F1951BED8AAC00E947BE /* WBNewFectureController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBNewFectureController.m; sourceTree = "<group>"; };
@@ -659,6 +665,8 @@
 		22A872D41BE3A1C800FB540D /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				22DB6D911BF6D3390039814B /* NSDate+MJ.h */,
+				22DB6D921BF6D3390039814B /* NSDate+MJ.m */,
 				22A872D51BE3A1C800FB540D /* UIImage+WBimage.h */,
 				22A872D61BE3A1C800FB540D /* UIImage+WBimage.m */,
 				226FF48D1BEB760C00DBCC8D /* UIBarButtonItem+WBItem.h */,
@@ -937,6 +945,8 @@
 				22F837D71BF5CFED00D4878A /* WBSeteWeed.m */,
 				22973F571BF61308005C274F /* WBToolBar.h */,
 				22973F581BF61308005C274F /* WBToolBar.m */,
+				22DD6AC91BFA0D6E007FA8FB /* WBPhotoView.h */,
+				22DD6ACA1BFA0D6E007FA8FB /* WBPhotoView.m */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -1185,6 +1195,7 @@
 				22AEE9001BF3514800E702A5 /* SDWebImagePrefetcher.m in Sources */,
 				22AEE9061BF3514800E702A5 /* UIImageView+WebCache.m in Sources */,
 				22AEE8D01BF33C4F00E702A5 /* NSObject+MJClass.m in Sources */,
+				22DD6ACB1BFA0D6E007FA8FB /* WBPhotoView.m in Sources */,
 				2204F1731BE9B441004D93FE /* WBProfileViewController.m in Sources */,
 				22AEE8CB1BF33C4F00E702A5 /* MJExtensionConst.m in Sources */,
 				226FF4891BEB738D00DBCC8D /* WBPopMenu.m in Sources */,
@@ -1236,6 +1247,7 @@
 				2270438E1BF0D61400A7578D /* WBRootView.m in Sources */,
 				22F5F1961BED8AAC00E947BE /* WBNewFectureController.m in Sources */,
 				22AEE8D21BF33C4F00E702A5 /* NSObject+MJKeyValue.m in Sources */,
+				22DB6D931BF6D3390039814B /* NSDate+MJ.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

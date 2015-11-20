@@ -21,6 +21,8 @@
 
 @property(nonatomic,strong)UIImageView *vipView;
 
+@property(nonatomic,strong)WBPhotoView *photoView;
+
 @end
 
 @implementation WBOrigonl
@@ -29,6 +31,8 @@
     if (self = [super initWithFrame:frame]) {
         //设置所有的控件
         [self setUpAllChild];
+        self.userInteractionEnabled = YES;
+        self.image = [UIImage imageNamed:@"timeline_card_top_background"];
     }
     return self;
 }
@@ -58,11 +62,15 @@
     _sourceLB = [[UILabel alloc]init];
     [self addSubview:_sourceLB];
     _sourceLB.font = KSourceFont;
+    _sourceLB.textColor = [UIColor lightGrayColor];
     //添加时间
     
    _timeLB = [[UILabel alloc]init];
     [self addSubview:_timeLB];
     _timeLB.font = KTimeFont;
+    
+    _photoView = [WBPhotoView new];
+    [self addSubview:_photoView];
     
 }
 
@@ -75,7 +83,7 @@
 }
 
 -(void)setOrigonlFrame{
-    
+    WBStatusModel *model = _ViewModel.status;
     //设置头像frame
     _iconView.frame = [_ViewModel origonliconViewFrame];
      //设置正文frame
@@ -92,11 +100,24 @@
         _vipView.hidden = YES;
               _textLB.textColor = [UIColor blackColor];
     }
-     //设置来源frame
-    _sourceLB.frame = [_ViewModel origonlsourceLBFrame];
-     //设置时间frame
-    _timeLB.frame = [_ViewModel origonltimeLBFrame];
-    _timeLB.textColor = [UIColor orangeColor];
+    // 时间       //设置时间frame  每一次都要计算时间
+    CGFloat timeX = CGRectGetMaxX(_iconView.frame) + KStatusCellMargin;
+    CGFloat timeY = CGRectGetMaxY(_nickNameLB.frame) + KStatusCellMargin * 0.5;
+    CGSize timeSize = [model.created_at sizeWithFont:KTimeFont];
+     _timeLB.frame = (CGRect){{timeX,timeY},timeSize};
+    
+    // 来源   //设置来源frame
+    CGFloat sourceX = CGRectGetMaxX(_timeLB.frame) + KStatusCellMargin;
+    CGFloat sourceY = timeY;
+    CGSize sourceSize = [model.source sizeWithFont:KSourceFont];
+     _sourceLB.frame = (CGRect){{sourceX,sourceY},sourceSize};
+  
+    _timeLB.textColor = [UIColor orangeColor];\
+    //配图的frame
+    _photoView.frame = _ViewModel.origonlPhtotFrame;
+    
+
+    
 }
 
 -(void)setOrigonlData{
@@ -112,12 +133,17 @@
     
     NSString *vipLevel = [NSString stringWithFormat:@"common_icon_membership_level%ld",_ViewModel.status.user.mbrank];
     _vipView.image = [UIImage imageNamed:vipLevel];
+
     
     //设置来源
     _sourceLB.text = _ViewModel.status.source;
     //设置时间
     
     _timeLB.text = _ViewModel.status.created_at;
+    
+    //配图数据
+    _photoView.pic_arr = _ViewModel.status.pic_urls;
+    
     
 }
 

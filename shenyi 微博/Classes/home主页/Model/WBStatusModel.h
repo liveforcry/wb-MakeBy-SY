@@ -52,6 +52,9 @@
  */
 @property(nonatomic,strong)WBStatusModel *retweeted_status;
 
+
+
+@property(nonatomic,strong)NSString *retweetedName;
 @end
 
 

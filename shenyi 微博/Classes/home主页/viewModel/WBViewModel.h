@@ -31,6 +31,9 @@
 @property(nonatomic)CGRect origonliconViewFrame;
 //vipframe
 @property(nonatomic)CGRect origonlvipViewFrame;
+//原创配图
+@property(nonatomic)CGRect origonlPhtotFrame;
+
 
 /*****************来源于转发******************/
 //转发frame
@@ -39,7 +42,8 @@
 @property(nonatomic)CGRect seteWeedtextLBFrame;
 //转发昵称frame
 @property(nonatomic)CGRect seteWeednickNameLBFrame;
-
+//转发配图
+@property(nonatomic)CGRect seteWeedPhtotFrame;
 
 //
 //@property(nonatomic)CGRect statusCell;

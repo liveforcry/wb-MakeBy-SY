@@ -8,7 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import "WBViewModel.h"
+#import "WBPhotoView.h"
+@interface WBOrigonl : UIImageView
 
-@interface WBOrigonl : UIView
 @property(nonatomic,strong)WBViewModel *ViewModel;
+
+
 @end

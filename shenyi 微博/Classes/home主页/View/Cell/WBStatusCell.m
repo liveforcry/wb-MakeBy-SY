@@ -34,6 +34,8 @@
     if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
         //设置所有的控件
         [self setUpAllChild];
+        //因为cell 是背景色是白色 所以把cell的颜色去掉 既可以显示table 的背景色了
+        self.backgroundColor = [UIColor clearColor];
     }
     return self;
 }
@@ -62,7 +64,8 @@
     _seteWeed.frame = statusViewModel.seteWeedFrame;
     _seteWeed.ViewModel = statusViewModel;
     _tabbar.frame = statusViewModel.tabbarFrame;
-    _tabbar.ViewModel = statusViewModel;
+    _tabbar.status = statusViewModel.status;
+   
 }
 
 //创建cell

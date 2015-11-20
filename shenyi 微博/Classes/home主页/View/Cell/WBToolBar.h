@@ -8,7 +8,8 @@
 
 #import <Foundation/Foundation.h>
 #import "WBViewModel.h"
-@interface WBToolBar : UIView
+@class WBStatusModel;
+@interface WBToolBar : UIImageView
 
-@property(nonatomic,strong)WBViewModel *ViewModel;
+@property(nonatomic,strong)WBStatusModel *status;
 @end
