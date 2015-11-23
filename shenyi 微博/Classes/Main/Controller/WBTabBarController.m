@@ -16,6 +16,7 @@
 #import "WBDiscoverViewController.h"
 #import "WBUserTool.h"
 #import "WBResult.h"
+#import "WBClickPlusController.h"
 @interface WBTabBarController ()<WBTabBarDelegate>
 @property(nonatomic,strong)NSMutableArray *buttons;
 @property(nonatomic,strong)WBHomeViewController *home;
@@ -99,6 +100,14 @@
            [_home refresh];
     }
     self.selectedIndex = index;
+    
+}
+
+-(void)tabBarDidClickPlusButton:(WBTabBar *)tabBar{
+    WBClickPlusController *controller = [[WBClickPlusController alloc]init];
+    WBNavigationController *nvai = [[WBNavigationController alloc]initWithRootViewController:controller];
+    [self presentViewController:nvai animated:YES completion:nil];
+    
     
 }
 #pragma mark 添加所有子控制器

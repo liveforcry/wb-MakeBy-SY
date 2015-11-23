@@ -78,6 +78,7 @@
     _ViewModel = ViewModel;
     //设置frame
     [self setOrigonlFrame];
+
     //设置数据
     [self setOrigonlData];
 }

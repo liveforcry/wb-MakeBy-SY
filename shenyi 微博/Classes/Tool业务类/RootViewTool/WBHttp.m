@@ -46,11 +46,28 @@
     }];
 }
 
++(void)Upload : (NSString *)URLString
+    parameters:(id)parameters
+  uploadParam : (WBUploadParam *)upload
+       success:(void (^)())success
+       failure:(void (^)( NSError *error))failure{
 
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    //用于上传文件用的方法
+    [manager POST:URLString parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+        
+    [formData appendPartWithFileData:upload.UploadData name:upload.UploadName fileName:upload.UploadFileName mimeType:upload.UploadMimeType];
+        
+    } success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        if (success) {
+            success();
+        }
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        if (error) {
+            failure(error);
+        }
+    }];
 
-
-
-
-
-
+}
 @end

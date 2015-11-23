@@ -10,6 +10,9 @@
 #import "UIImageView+WebCache.h"
 #import "WBHomeViewController.h"
 #import "WBStatusModel.h"
+#import "MJPhotoBrowser.h"
+#import "MJPhoto.h"
+#import "WBPhotoGif.h"
 @implementation WBPhotoView
 
 /*
@@ -30,10 +33,9 @@
 -(void)setUpAllChild{
     
     for (int i = 0; i < 9; i++) {
-        UIImageView *image = [[UIImageView alloc]init];
-        [self addSubview:image
-        
-    ];
+        WBPhotoGif *image = [[WBPhotoGif alloc]init];
+        [self addSubview:image];
+
         
  }
     
@@ -43,15 +45,17 @@
     _pic_arr = pic_arr;
     NSInteger count = self.subviews.count;
     for (int i = 0; i < count; i++) {
-        UIImageView *image = self.subviews[i];
-        image.contentMode = UIViewContentModeScaleAspectFill;
-        image.clipsToBounds = YES;
-    
+        WBPhotoGif *image = self.subviews[i];
+
+        image.tag = i;
+ 
+        UITapGestureRecognizer *gesture = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tap:)];
+        [image addGestureRecognizer:gesture];
         if (i < pic_arr.count) {
            image.hidden = NO;
             //赋值
-     WBPicUrlModel *photoUrl= pic_arr[i];
-      [image sd_setImageWithURL:photoUrl.thumbnail_pic placeholderImage:[UIImage imageNamed:@"timeline_image_placeholder"]];
+      image.picUrl = pic_arr[i];
+
             
         }else{
          image.hidden = YES;
@@ -60,7 +64,36 @@
     }
     
 }
-
+-(void)tap: (UIGestureRecognizer *)gesture{
+//    // 所有的图片对象(MJPhoto)
+//    @property (nonatomic, strong) NSArray *photos;
+//    // 当前展示的图片索引
+//    @property (nonatomic, assign) NSUInteger currentPhotoIndex;
+    UIImageView *image = (UIImageView *)gesture.view;
+  
+  
+    NSMutableArray *array = [NSMutableArray array];
+ 
+    for (int i = 0; i < self.pic_arr.count; i++) {
+        MJPhoto *photo = [[MJPhoto alloc]init];
+        WBPicUrlModel *model = self.pic_arr[i];
+        NSString *thumbnailStr = model.thumbnail_pic.absoluteString;
+//        NSLog(@"thumbnailStr  =%@",thumbnailStr);
+       thumbnailStr = [thumbnailStr stringByReplacingOccurrencesOfString:@"thumbnail" withString:@"bmiddle"];
+        photo.url  = [NSURL URLWithString:thumbnailStr];
+        photo.srcImageView = image;
+        photo.index = i  ;
+        [array addObject:photo];
+    }
+    
+    MJPhotoBrowser *broswer = [[MJPhotoBrowser alloc]init];
+    broswer.photos = array;
+    broswer.currentPhotoIndex = image.tag;
+    [broswer show];
+    
+    
+    
+}
 -(void)layoutSubviews{
     [super layoutSubviews];
     //采用九宫格布局

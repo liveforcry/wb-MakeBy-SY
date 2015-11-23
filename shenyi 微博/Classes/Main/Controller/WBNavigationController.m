@@ -20,8 +20,10 @@
     NSMutableDictionary *dict = [NSMutableDictionary dictionary];
     
     dict[NSForegroundColorAttributeName] = [UIColor orangeColor];
-    
+
     [item setTitleTextAttributes:dict forState:UIControlStateNormal];
+    
+    
 }
 
 -(void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated{

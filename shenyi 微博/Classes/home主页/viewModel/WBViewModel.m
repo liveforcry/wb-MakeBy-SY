@@ -75,7 +75,7 @@
     
     // 原创微博的frame
     CGFloat originX = 0;
-    CGFloat originY = 10;
+    CGFloat originY = 0;
     CGFloat originW = KScreenW;
 
     _origonlFrame = CGRectMake(originX, originY, originW, originH);
@@ -140,10 +140,10 @@
     CGFloat tabbarY = CGRectGetMaxY(_origonlFrame);
     
     //判断有没有转发
-    if (_status.retweeted_status) {
+    if (self.status.retweeted_status) {
         tabbarY = CGRectGetMaxY(_seteWeedFrame);
     }
-    
+   
     CGFloat tabbarW = KWindowW;
     CGFloat tabbarH = 35;
     
@@ -153,10 +153,7 @@
     
     
 }
- //计算cell的高度
--(void)setTotalCellFrame{
-    
-}
+
 
 
 

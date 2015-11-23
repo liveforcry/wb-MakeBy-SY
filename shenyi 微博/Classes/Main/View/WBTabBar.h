@@ -13,7 +13,8 @@
 @protocol WBTabBarDelegate <NSObject>
 @optional
 -(void)tabBar :(WBTabBar *)tabBar didClickAtIndex :(NSInteger)index;
-
+//点击plusButton 调用
+-(void)tabBarDidClickPlusButton :(WBTabBar *)tabBar;
 @end
 
 

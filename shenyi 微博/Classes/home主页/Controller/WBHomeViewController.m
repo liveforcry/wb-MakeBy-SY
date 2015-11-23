@@ -55,7 +55,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setUpNavigionBar];
-    self.tableView.backgroundColor = [UIColor colorWithRed:213 / 250.0 green:214 / 250.0 blue:215 / 250.0 alpha:1];
+    self.tableView.backgroundColor = [UIColor colorWithRed:213 / 250.0 green:213 / 250.0 blue:213 / 250.0 alpha:1];
+   
     //下拉刷新
     [self.tableView addHeaderWithTarget:self action:@selector(loadNewsStatus)];
     self.tableView.separatorStyle =   UITableViewCellSeparatorStyleNone;

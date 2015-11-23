@@ -53,11 +53,22 @@
         [_plusBtn setImage:[UIImage imageNamed:@"tabbar_compose_background_icon_add"] forState:UIControlStateHighlighted];
         [_plusBtn setBackgroundImage:[UIImage imageNamed:@"tabbar_compose_button"] forState:UIControlStateNormal];
         [_plusBtn setBackgroundImage:[UIImage imageNamed:@"tabbar_compose_button_highlighted"] forState:UIControlStateHighlighted];
+        //添加监听按钮
+        [_plusBtn addTarget:self action:@selector(clickPlusBtn) forControlEvents:UIControlEventTouchUpInside];
         //sizeToFit 默认会根据按钮的背景图片或者image和文字计算出按钮的最合适的尺寸
         [_plusBtn sizeToFit];
         [self addSubview:_plusBtn];
     }
     return _plusBtn;
+}
+-(void)clickPlusBtn{
+    
+//因为是在wbtarbar里面无法实现 推出一个控制器
+//    所以用代理的方法
+    if ([_delegate respondsToSelector:@selector(tabBarDidClickPlusButton:)]) {
+        [_delegate tabBarDidClickPlusButton:self];
+    }
+    
 }
 // 自定义tabbar 自己布局
 -(void)layoutSubviews{

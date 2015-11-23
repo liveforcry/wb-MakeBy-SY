@@ -7,7 +7,7 @@
 //// 用于网路的请求
 
 #import <Foundation/Foundation.h>
-
+#import "WBUploadParam.h"
 @interface WBHttp : NSObject
 /**
  *  发送get 请求
@@ -33,4 +33,18 @@
  parameters:(id)parameters
     success:(void (^)( id responseObject))success
     failure:(void (^)( NSError *error))failure;
+/**
+ *  上传图片调用
+ *
+ *  @param URLString  基本url
+ *  @param parameters 请求德 参数字典
+ * @param parameters   上传的参数的模型
+ *  @param success    成功调用
+ *  @param failure    失败调用
+ */
++(void)Upload : (NSString *)URLString
+      parameters:(id)parameters
+       uploadParam : (WBUploadParam *)upload
+         success:(void (^)())success
+         failure:(void (^)( NSError *error))failure;
 @end
